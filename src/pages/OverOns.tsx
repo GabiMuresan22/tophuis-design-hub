@@ -3,7 +3,7 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Award, Users, Clock, ThumbsUp, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import heroImage from "@/assets/hero-renovation.jpg";
+import heroImage from "@/assets/hero-img.webp";
 
 export default function OverOns() {
   const { t } = useLanguage();

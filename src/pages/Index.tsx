@@ -3,7 +3,7 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Star } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import heroImage from "@/assets/hero-renovation.jpg";
+import heroImage from "@/assets/hero-img.webp";
 import galleryKitchen from "@/assets/keuken-renovatie-1.webp";
 import galleryBathroom from "@/assets/bad-kamer-renovatie.webp";
 
