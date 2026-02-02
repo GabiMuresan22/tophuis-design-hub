@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { X, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import galleryKitchen from "@/assets/keuken-renovatie-1.webp";
-import galleryKitchen2 from "@/assets/keuken-renovatie-2.png";
+import galleryKitchen2 from "@/assets/keuken-renovatie.webp";
 import galleryBathroom from "@/assets/bad-kamer-renovatie.webp";
 import galleryInterior from "@/assets/interior.webp";
 import galleryTotalExterior from "@/assets/total-renovatie-exterior.png";
