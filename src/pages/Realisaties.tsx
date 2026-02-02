@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { X, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import galleryKitchen from "@/assets/gallery-kitchen.jpg";
-import galleryBathroom from "@/assets/gallery-bathroom.jpg";
-import galleryRoofing from "@/assets/gallery-roofing.jpg";
-import galleryLiving from "@/assets/gallery-living.jpg";
+import galleryKitchen from "@/assets/keuken-renovatie-1.webp";
+import galleryBathroom from "@/assets/bad-kamer-renovatie.webp";
+import galleryLiving from "@/assets/total-renovatie.webp";
+import galleryPool from "@/assets/pool-renovatie.webp";
 
 export default function Realisaties() {
   const { t } = useLanguage();
@@ -36,16 +36,6 @@ export default function Realisaties() {
     },
     {
       id: 3,
-      title: t("Dakrenovatie Eeklo", "Roof Renovation Eeklo"),
-      category: t("Dakwerken", "Roofing"),
-      image: galleryRoofing,
-      description: t(
-        "Volledige dakvernieuwing met nieuwe pannen en isolatie.",
-        "Complete roof renewal with new tiles and insulation."
-      ),
-    },
-    {
-      id: 4,
       title: t("Woonkamer Transformatie", "Living Room Transformation"),
       category: t("Interieur", "Interior"),
       image: galleryLiving,
@@ -55,7 +45,7 @@ export default function Realisaties() {
       ),
     },
     {
-      id: 5,
+      id: 4,
       title: t("Badkamer Renovatie Aalst", "Bathroom Renovation Aalst"),
       category: t("Badkamer", "Bathroom"),
       image: galleryBathroom,
@@ -65,13 +55,13 @@ export default function Realisaties() {
       ),
     },
     {
-      id: 6,
-      title: t("Dakproject Deinze", "Roof Project Deinze"),
-      category: t("Dakwerken", "Roofing"),
-      image: galleryRoofing,
+      id: 5,
+      title: t("Zwembad Renovatie", "Pool Renovation"),
+      category: t("Zwembad", "Pool"),
+      image: galleryPool,
       description: t(
-        "Nieuwe dakbedekking met dakramen voor extra licht.",
-        "New roofing with skylights for extra light."
+        "Volledige zwembadrenovatie en afwerking voor jarenlang zwemplezier.",
+        "Complete pool renovation and finishing for years of swimming enjoyment."
       ),
     },
   ];
@@ -80,8 +70,8 @@ export default function Realisaties() {
     t("Alle", "All"),
     t("Keuken", "Kitchen"),
     t("Badkamer", "Bathroom"),
-    t("Dakwerken", "Roofing"),
     t("Interieur", "Interior"),
+    t("Zwembad", "Pool"),
   ];
 
   const [lightboxImage, setLightboxImage] = useState<typeof projects[0] | null>(null);

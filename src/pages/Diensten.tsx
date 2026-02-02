@@ -3,10 +3,9 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import galleryRoofing from "@/assets/gallery-roofing.jpg";
-import galleryKitchen from "@/assets/gallery-kitchen.jpg";
-import galleryBathroom from "@/assets/gallery-bathroom.jpg";
-import galleryLiving from "@/assets/gallery-living.jpg";
+import galleryKitchen from "@/assets/keuken-renovatie-1.webp";
+import galleryBathroom from "@/assets/bad-kamer-renovatie.webp";
+import galleryLiving from "@/assets/total-renovatie.webp";
 
 export default function Diensten() {
   const { t } = useLanguage();

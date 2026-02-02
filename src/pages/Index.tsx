@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Star } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import heroImage from "@/assets/hero-renovation.jpg";
-import galleryKitchen from "@/assets/gallery-kitchen.jpg";
-import galleryBathroom from "@/assets/gallery-bathroom.jpg";
+import galleryKitchen from "@/assets/keuken-renovatie-1.webp";
+import galleryBathroom from "@/assets/bad-kamer-renovatie.webp";
 
 export default function Index() {
   const { t } = useLanguage();
