@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 import { X, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import galleryKitchen from "@/assets/keuken-renovatie-1.webp";
+import galleryKitchen2 from "@/assets/keuken-renovatie-2.png";
 import galleryBathroom from "@/assets/bad-kamer-renovatie.webp";
 import galleryLiving from "@/assets/total-renovatie.webp";
+import galleryTotalExterior from "@/assets/total-renovatie-exterior.png";
 import galleryPool from "@/assets/pool-renovatie.webp";
 
 export default function Realisaties() {
@@ -26,6 +28,16 @@ export default function Realisaties() {
     },
     {
       id: 2,
+      title: t("Moderne L-vormige Keuken", "Modern L-Shaped Kitchen"),
+      category: t("Keuken", "Kitchen"),
+      image: galleryKitchen2,
+      description: t(
+        "Strakke handleloze keuken met houtlook werkblad, inbouwovens en inbouwplaat. Onderkastverlichting en spotjes voor een licht en ruim gevoel.",
+        "Sleek handle-less kitchen with wood-look worktop, built-in oven and hob. Under-cabinet and recessed lighting for a bright, spacious feel."
+      ),
+    },
+    {
+      id: 4,
       title: t("Moderne Badkamer Gent", "Modern Bathroom Ghent"),
       category: t("Badkamer", "Bathroom"),
       image: galleryBathroom,
@@ -35,7 +47,7 @@ export default function Realisaties() {
       ),
     },
     {
-      id: 3,
+      id: 5,
       title: t("Woonkamer Transformatie", "Living Room Transformation"),
       category: t("Interieur", "Interior"),
       image: galleryLiving,
@@ -45,17 +57,17 @@ export default function Realisaties() {
       ),
     },
     {
-      id: 4,
-      title: t("Badkamer Renovatie Aalst", "Bathroom Renovation Aalst"),
-      category: t("Badkamer", "Bathroom"),
-      image: galleryBathroom,
+      id: 8,
+      title: t("Totaalrenovatie Rijwoningen met Zonnepanelen", "Total Renovation Row Houses with Solar Panels"),
+      category: t("Totaalrenovatie", "Total Renovation"),
+      image: galleryTotalExterior,
       description: t(
-        "Compacte badkamer optimaal ingericht met kwaliteitsafwerking.",
-        "Compact bathroom optimally designed with quality finishing."
+        "Moderne rijwoningen met strakke gevels, rode pannendaken en zonnepanelen. Nieuwe oprit in klinkers en energiezuinige afwerking.",
+        "Modern row houses with clean facades, clay-tile roofs and solar panels. New paved driveway and energy-efficient finishing."
       ),
     },
     {
-      id: 5,
+      id: 7,
       title: t("Zwembad Renovatie", "Pool Renovation"),
       category: t("Zwembad", "Pool"),
       image: galleryPool,
@@ -71,6 +83,7 @@ export default function Realisaties() {
     t("Keuken", "Kitchen"),
     t("Badkamer", "Bathroom"),
     t("Interieur", "Interior"),
+    t("Totaalrenovatie", "Total Renovation"),
     t("Zwembad", "Pool"),
   ];
 
