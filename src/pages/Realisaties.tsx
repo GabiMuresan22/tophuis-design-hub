@@ -7,7 +7,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import galleryKitchen from "@/assets/keuken-renovatie-1.webp";
 import galleryKitchen2 from "@/assets/keuken-renovatie-2.png";
 import galleryBathroom from "@/assets/bad-kamer-renovatie.webp";
-import galleryLiving from "@/assets/total-renovatie.webp";
+import galleryInterior from "@/assets/interior.webp";
 import galleryTotalExterior from "@/assets/total-renovatie-exterior.png";
 import galleryPool from "@/assets/pool-renovatie.webp";
 
@@ -50,7 +50,7 @@ export default function Realisaties() {
       id: 5,
       title: t("Woonkamer Transformatie", "Living Room Transformation"),
       category: t("Interieur", "Interior"),
-      image: galleryLiving,
+      image: galleryInterior,
       description: t(
         "Nieuwe parketvloer en schilderwerken voor een frisse look.",
         "New parquet floor and painting for a fresh look."

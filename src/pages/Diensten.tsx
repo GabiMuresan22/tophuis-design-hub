@@ -3,9 +3,9 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import galleryVloer from "@/assets/vloer.webp";
 import galleryKitchen from "@/assets/keuken-renovatie-1.webp";
 import galleryBathroom from "@/assets/bad-kamer-renovatie.webp";
-import galleryLiving from "@/assets/total-renovatie.webp";
 
 export default function Diensten() {
   const { t } = useLanguage();
@@ -26,7 +26,7 @@ export default function Diensten() {
         t("Vloerverwarming integratie", "Underfloor heating integration"),
         t("Bestaande vloeren renoveren", "Renovating existing floors"),
       ],
-      image: galleryLiving,
+      image: galleryVloer,
     },
     {
       id: "schilderwerken",
