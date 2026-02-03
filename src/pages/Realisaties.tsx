@@ -5,9 +5,14 @@ import { Link } from "react-router-dom";
 import { X, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import galleryKitchen from "@/assets/keuken-renovatie-1.webp";
-import galleryKitchen2 from "@/assets/keuken-renovatie.webp";
+import galleryKitchen2 from "@/assets/kitchen.webp";
 import galleryBathroom from "@/assets/bad-kamer-renovatie.webp";
 import galleryInterior from "@/assets/interior.webp";
+import galleryLiving2 from "@/assets/living 2.webp";
+import galleryLiving3 from "@/assets/living 3.webp";
+import galleryLivingWall from "@/assets/living wall tv.webp";
+import galleryCurte from "@/assets/curte.webp";
+import galleryGrass from "@/assets/grass.webp";
 import galleryTotalExterior from "@/assets/total-renovatie-exterior.png";
 
 export default function Realisaties() {
@@ -65,6 +70,56 @@ export default function Realisaties() {
         "Modern row houses with clean facades, clay-tile roofs and solar panels. New paved driveway and energy-efficient finishing."
       ),
     },
+    {
+      id: 9,
+      title: t("Woonkamer met TV-wand", "Living Room with TV Wall"),
+      category: t("Interieur", "Interior"),
+      image: galleryLivingWall,
+      description: t(
+        "Moderne woonkamer met geïntegreerde TV-wand en strakke afwerking.",
+        "Modern living room with integrated TV wall and sleek finishing."
+      ),
+    },
+    {
+      id: 10,
+      title: t("Lichte Woonruimte", "Bright Living Space"),
+      category: t("Interieur", "Interior"),
+      image: galleryLiving2,
+      description: t(
+        "Ruime en lichte woonkamer met aandacht voor detail.",
+        "Spacious and bright living room with attention to detail."
+      ),
+    },
+    {
+      id: 11,
+      title: t("Moderne Woonkamer", "Modern Living Room"),
+      category: t("Interieur", "Interior"),
+      image: galleryLiving3,
+      description: t(
+        "Strak interieur met moderne materialen en comfort.",
+        "Sleek interior with modern materials and comfort."
+      ),
+    },
+    {
+      id: 12,
+      title: t("Binnenplaats & Terras", "Courtyard & Terrace"),
+      category: t("Exterieur", "Exterior"),
+      image: galleryCurte,
+      description: t(
+        "Afgewerkte binnenplaats of terras voor buitenleven.",
+        "Finished courtyard or terrace for outdoor living."
+      ),
+    },
+    {
+      id: 13,
+      title: t("Tuin & Buitenruimte", "Garden & Outdoor Space"),
+      category: t("Tuin", "Garden"),
+      image: galleryGrass,
+      description: t(
+        "Groene buitenruimte en tuinaanleg.",
+        "Green outdoor space and garden design."
+      ),
+    },
   ];
 
   const categories = [
@@ -73,6 +128,8 @@ export default function Realisaties() {
     t("Badkamer", "Bathroom"),
     t("Interieur", "Interior"),
     t("Totaalrenovatie", "Total Renovation"),
+    t("Exterieur", "Exterior"),
+    t("Tuin", "Garden"),
   ];
 
   const [lightboxImage, setLightboxImage] = useState<typeof projects[0] | null>(null);

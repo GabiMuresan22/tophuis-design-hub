@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Star } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import heroImage from "@/assets/hero-img.webp";
-import galleryKitchen from "@/assets/keuken-renovatie-1.webp";
+import galleryKitchen from "@/assets/kitchen.webp";
 import galleryBathroom from "@/assets/bad-kamer-renovatie.webp";
 
 export default function Index() {
