@@ -13,6 +13,8 @@ import galleryLiving3 from "@/assets/living 3.webp";
 import galleryLivingWall from "@/assets/living wall tv.webp";
 import galleryCurte from "@/assets/curte.webp";
 import galleryGrass from "@/assets/grass.webp";
+import galleryRenovatie from "@/assets/renovatie.webp";
+import galleryFloor from "@/assets/floor.webp";
 import galleryTotalExterior from "@/assets/total-renovatie-exterior.png";
 
 export default function Realisaties() {
@@ -120,6 +122,26 @@ export default function Realisaties() {
         "Green outdoor space and garden design."
       ),
     },
+    {
+      id: 14,
+      title: t("Renovatieproject", "Renovation Project"),
+      category: t("Totaalrenovatie", "Total Renovation"),
+      image: galleryRenovatie,
+      description: t(
+        "Volledige woningrenovatie van A tot Z.",
+        "Complete home renovation from A to Z."
+      ),
+    },
+    {
+      id: 15,
+      title: t("Vloerrenovatie", "Floor Renovation"),
+      category: t("Vloeren", "Flooring"),
+      image: galleryFloor,
+      description: t(
+        "Nieuwe vloerafwerking voor een frisse en duurzame look.",
+        "New floor finishing for a fresh and durable look."
+      ),
+    },
   ];
 
   const categories = [
@@ -128,6 +150,7 @@ export default function Realisaties() {
     t("Badkamer", "Bathroom"),
     t("Interieur", "Interior"),
     t("Totaalrenovatie", "Total Renovation"),
+    t("Vloeren", "Flooring"),
     t("Exterieur", "Exterior"),
     t("Tuin", "Garden"),
   ];

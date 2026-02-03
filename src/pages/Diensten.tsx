@@ -3,7 +3,7 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import galleryVloer from "@/assets/vloer.webp";
+import galleryVloer from "@/assets/floor.webp";
 import galleryKitchen from "@/assets/keuken-renovatie-1.webp";
 import galleryBathroom from "@/assets/bad-kamer-renovatie.webp";
 
