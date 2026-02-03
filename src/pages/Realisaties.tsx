@@ -9,7 +9,6 @@ import galleryKitchen2 from "@/assets/keuken-renovatie.webp";
 import galleryBathroom from "@/assets/bad-kamer-renovatie.webp";
 import galleryInterior from "@/assets/interior.webp";
 import galleryTotalExterior from "@/assets/total-renovatie-exterior.png";
-import galleryPool from "@/assets/pool-renovatie.webp";
 
 export default function Realisaties() {
   const { t } = useLanguage();
@@ -66,16 +65,6 @@ export default function Realisaties() {
         "Modern row houses with clean facades, clay-tile roofs and solar panels. New paved driveway and energy-efficient finishing."
       ),
     },
-    {
-      id: 7,
-      title: t("Zwembad Renovatie", "Pool Renovation"),
-      category: t("Zwembad", "Pool"),
-      image: galleryPool,
-      description: t(
-        "Volledige zwembadrenovatie en afwerking voor jarenlang zwemplezier.",
-        "Complete pool renovation and finishing for years of swimming enjoyment."
-      ),
-    },
   ];
 
   const categories = [
@@ -84,7 +73,6 @@ export default function Realisaties() {
     t("Badkamer", "Bathroom"),
     t("Interieur", "Interior"),
     t("Totaalrenovatie", "Total Renovation"),
-    t("Zwembad", "Pool"),
   ];
 
   const [lightboxImage, setLightboxImage] = useState<typeof projects[0] | null>(null);
