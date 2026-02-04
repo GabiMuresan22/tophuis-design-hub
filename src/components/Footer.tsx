@@ -39,7 +39,7 @@ export function Footer() {
               )}
             </p>
             <p className="text-sm text-primary-foreground/60">
-              BTW: BE 0123.456.789
+              BTW: BE 1022.501.249
             </p>
           </div>
 
@@ -113,7 +113,7 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <Clock className="h-5 w-5 text-secondary mt-0.5" />
                 <span className="text-primary-foreground/80">
-                  {t("Ma - Vr", "Mon - Fri")}: 8:00 - 18:00<br />
+                  {t("Ma - Vr", "Mon - Fri")}: 08:00 - 17:00<br />
                   {t("Za", "Sat")}: 9:00 - 13:00
                 </span>
               </li>
