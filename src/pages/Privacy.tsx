@@ -45,7 +45,7 @@ export default function Privacy() {
               {t("Adres", "Address")}: Grote Baan 21, 9920 Lievegem, {t("België", "Belgium")}<br />
               {t("Ondernemingsnummer (KBO)", "Company number (KBO)")}: BE 1022.501.249<br />
               E-mail: privacy@tophuis.be<br />
-              {t("Telefoon", "Phone")}: +32 123 456 789
+              {t("Telefoon", "Phone")}: +32 493 28 88 87
             </p>
 
             <h2 className="text-xl font-heading font-semibold mb-4">

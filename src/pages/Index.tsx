@@ -252,7 +252,7 @@ export default function Index() {
               </Link>
             </Button>
             <Button variant="outline" size="xl" asChild>
-              <a href="tel:+32123456789">{t("Bel Ons Direct", "Call Us Directly")}</a>
+              <a href="tel:+32493288887">{t("Bel Ons Direct", "Call Us Directly")}</a>
             </Button>
           </div>
         </div>

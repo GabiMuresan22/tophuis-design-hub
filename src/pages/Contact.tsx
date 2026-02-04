@@ -105,10 +105,10 @@ export default function Contact() {
                   <div>
                     <h3 className="text-lg font-semibold mb-1">{t("Telefoon", "Phone")}</h3>
                     <a
-                      href="tel:+32123456789"
+                      href="tel:+32493288887"
                       className="text-muted-foreground hover:text-secondary transition-colors"
                     >
-                      +32 123 456 789
+                      +32 493 28 88 87
                     </a>
                   </div>
                 </div>

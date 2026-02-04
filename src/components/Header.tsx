@@ -90,11 +90,11 @@ export function Header() {
               <span>{language.toUpperCase()}</span>
             </button>
             <a
-              href="tel:+32123456789"
+              href="tel:+32493288887"
               className="flex items-center gap-2 text-primary font-medium"
             >
               <Phone className="h-4 w-4" />
-              <span className="text-sm">+32 123 456 789</span>
+              <span className="text-sm">+32 493 28 88 87</span>
             </a>
             <Button variant="blueprint" asChild>
               <Link to="/contact">{t("Offerte Aanvragen", "Get a Quote")}</Link>
