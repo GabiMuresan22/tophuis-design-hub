@@ -39,7 +39,7 @@ export default function Privacy() {
             </h2>
             <p className="text-muted-foreground mb-6">
               TopHuis BV<br />
-              {t("Adres", "Address")}: Kerkstraat 123, 9940 Lievegem, {t("België", "Belgium")}<br />
+              {t("Adres", "Address")}: Grote Baan 21, 9920 Lievegem, {t("België", "Belgium")}<br />
               {t("Ondernemingsnummer (KBO)", "Company number (KBO)")}: BE 1022.501.249<br />
               E-mail: privacy@tophuis.be<br />
               {t("Telefoon", "Phone")}: +32 123 456 789

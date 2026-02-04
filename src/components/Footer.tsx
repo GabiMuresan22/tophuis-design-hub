@@ -88,8 +88,8 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-secondary mt-0.5" />
                 <span className="text-primary-foreground/80">
-                  Kerkstraat 123<br />
-                  9940 Lievegem, {t("België", "Belgium")}
+                  Grote Baan 21<br />
+                  9920 Lievegem, {t("België", "Belgium")}
                 </span>
               </li>
               <li className="flex items-center gap-3">

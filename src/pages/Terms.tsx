@@ -25,7 +25,7 @@ export default function Terms() {
               {t("1. Definities", "1. Definitions")}
             </h2>
             <p className="text-muted-foreground mb-4">
-              <strong>TopHuis:</strong> {t("verwijst naar TopHuis BV, gevestigd te Kerkstraat 123, 9940 Lievegem, ingeschreven bij de Kruispuntbank van Ondernemingen (KBO) onder nummer BE 1022.501.249.", "refers to TopHuis BV, established at Kerkstraat 123, 9940 Lievegem, Belgium, registered with the Crossroads Bank for Enterprises (KBO) under number BE 1022.501.249.")}
+              <strong>TopHuis:</strong> {t("verwijst naar TopHuis BV, gevestigd te Grote Baan 21, 9920 Lievegem, ingeschreven bij de Kruispuntbank van Ondernemingen (KBO) onder nummer BE 1022.501.249.", "refers to TopHuis BV, established at Grote Baan 21, 9920 Lievegem, Belgium, registered with the Crossroads Bank for Enterprises (KBO) under number BE 1022.501.249.")}
             </p>
             <p className="text-muted-foreground mb-4">
               <strong>{t("Klant", "Customer")}:</strong> {t("iedere natuurlijke persoon of rechtspersoon die gebruikmaakt van de diensten van TopHuis of een bestelling plaatst via de website.", "any natural or legal person who uses the services of TopHuis or places an order via the website.")}
