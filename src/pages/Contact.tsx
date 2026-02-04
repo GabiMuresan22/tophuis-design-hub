@@ -136,7 +136,6 @@ export default function Contact() {
                     <h3 className="text-lg font-semibold mb-1">{t("Openingsuren", "Opening Hours")}</h3>
                     <p className="text-muted-foreground">
                       {t("Maandag - Vrijdag", "Monday - Friday")}: 08:00 - 17:00<br />
-                      {t("Zaterdag", "Saturday")}: 9:00 - 13:00<br />
                       {t("Zondag", "Sunday")}: {t("Gesloten", "Closed")}
                     </p>
                   </div>

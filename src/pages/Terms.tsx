@@ -17,8 +17,11 @@ export default function Terms() {
       <section className="section-padding">
         <div className="container-wide max-w-3xl">
           <div className="prose prose-lg max-w-none">
-            <p className="text-muted-foreground mb-10">
+            <p className="text-muted-foreground mb-2">
               {t("Laatst bijgewerkt: februari 2025", "Last updated: February 2025")}
+            </p>
+            <p className="text-sm text-muted-foreground/80 mb-10">
+              {t("Deze pagina is beschikbaar in het Nederlands en Engels. Gebruik de taalkeuze in het menu om van taal te wisselen.", "This page is available in Dutch and English. Use the language selector in the menu to switch languages.")}
             </p>
 
             <h2 className="text-xl font-heading font-semibold mb-4">
