@@ -25,13 +25,12 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div>
-            <div className="flex items-center mb-6">
-              <span className="font-heading text-2xl font-bold text-white">
-                TOP
-              </span>
-              <span className="font-heading text-2xl font-bold text-secondary">
-                HUIS
-              </span>
+            <div className="mb-6">
+              <img 
+                src="/assets/logo.png" 
+                alt="TopHuis - Uw Visie, Onze Perfectie" 
+                className="h-12 w-auto brightness-0 invert"
+              />
             </div>
             <p className="text-primary-foreground/80 mb-6">
               {t(

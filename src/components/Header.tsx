@@ -37,15 +37,12 @@ export function Header() {
       <div className="container-wide">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="flex items-center">
-              <span className="font-heading text-2xl font-bold text-primary">
-                TOP
-              </span>
-              <span className="font-heading text-2xl font-bold text-secondary">
-                HUIS
-              </span>
-            </div>
+          <Link to="/" className="flex items-center">
+            <img 
+              src="/assets/logo.png" 
+              alt="TopHuis - Uw Visie, Onze Perfectie" 
+              className="h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
