@@ -4,7 +4,11 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
+// For GitHub Pages (project site), set BASE_PATH=/tophuis-design-hub/ when building
+const base = process.env.BASE_PATH || "/";
+
 export default defineConfig(({ mode }) => ({
+  base,
   server: {
     host: "::",
     port: 8080,

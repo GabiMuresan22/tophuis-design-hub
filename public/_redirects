@@ -1,1 +1,4 @@
-/*    /index.html   200
+# Serve asset files as-is (avoid SPA fallback returning HTML for .js/.css)
+/assets/*  /assets/:splat  200
+# SPA fallback: all other routes → index.html
+/*         /index.html     200
