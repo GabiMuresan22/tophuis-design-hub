@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { GoogleAnalyticsTracker } from "@/components/GoogleAnalyticsTracker";
 import Index from "./pages/Index";
 import Diensten from "./pages/Diensten";
 import Realisaties from "./pages/Realisaties";
@@ -23,6 +24,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <GoogleAnalyticsTracker />
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />

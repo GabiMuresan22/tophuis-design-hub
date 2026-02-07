@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Cookie, X } from "lucide-react";
+import { initGoogleAnalytics, trackPageView } from "@/lib/analytics";
 
 const COOKIE_CONSENT_KEY = "tophuis_cookie_consent";
 
 export function CookieConsent() {
   const { t } = useLanguage();
+  const location = useLocation();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -22,6 +24,9 @@ export function CookieConsent() {
   const handleAccept = () => {
     localStorage.setItem(COOKIE_CONSENT_KEY, "accepted");
     setIsVisible(false);
+    // Start Google Analytics only after user accepts
+    initGoogleAnalytics();
+    trackPageView(location.pathname + location.search, document.title);
   };
 
   const handleDecline = () => {
