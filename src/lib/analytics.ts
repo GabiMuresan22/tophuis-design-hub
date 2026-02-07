@@ -7,6 +7,12 @@ export const GA_MEASUREMENT_ID = "G-KD3JP0LL2G";
 
 const COOKIE_CONSENT_KEY = "tophuis_cookie_consent";
 
+/** Set to true to see GA logs in console (e.g. localStorage.setItem('ga_debug','1')) */
+function gaDebug(): boolean {
+  if (typeof window === "undefined") return false;
+  return import.meta.env.DEV || window.localStorage?.getItem("ga_debug") === "1";
+}
+
 declare global {
   interface Window {
     dataLayer: unknown[];
@@ -25,8 +31,15 @@ export function hasConsent(): boolean {
  * Load gtag.js and configure GA4. Only runs once and only when consent is given.
  */
 export function initGoogleAnalytics(): void {
-  if (typeof window === "undefined" || !hasConsent()) return;
-  if (initialized) return;
+  const consent = hasConsent();
+  if (gaDebug()) {
+    console.log("[GA] initGoogleAnalytics called", { consent, initialized });
+  }
+  if (typeof window === "undefined" || !consent) return;
+  if (initialized) {
+    if (gaDebug()) console.log("[GA] Already initialized, skipping");
+    return;
+  }
 
   window.dataLayer = window.dataLayer || [];
   function gtag(...args: unknown[]) {
@@ -44,6 +57,9 @@ export function initGoogleAnalytics(): void {
   document.head.appendChild(script);
 
   initialized = true;
+  if (gaDebug()) {
+    console.log("[GA] Initialized", GA_MEASUREMENT_ID);
+  }
 }
 
 /**
@@ -61,5 +77,8 @@ export function trackPageView(path?: string, title?: string): void {
       page_path: pagePath,
       page_title: pageTitle,
     });
+    if (gaDebug()) {
+      console.log("[GA] page_view", { page_path: pagePath, page_title: pageTitle });
+    }
   }
 }
