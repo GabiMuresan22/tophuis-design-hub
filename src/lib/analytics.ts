@@ -48,7 +48,8 @@ export function initGoogleAnalytics(): void {
   window.gtag = gtag;
 
   gtag("js", new Date());
-  gtag("config", GA_MEASUREMENT_ID);
+  // Disable automatic page_view so we only send via trackPageView() (avoids double count)
+  gtag("config", GA_MEASUREMENT_ID, { send_page_view: false });
 
   // Load the gtag.js script
   const script = document.createElement("script");

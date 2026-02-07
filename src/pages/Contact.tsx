@@ -29,22 +29,92 @@ export default function Contact() {
     budget: "",
   });
 
+  const formId = import.meta.env.VITE_FORMSPREE_FORM_ID;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const payload = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      subject: formData.subject,
+      budget: formData.budget,
+      message: formData.message,
+    };
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast({
-      title: t("Bericht Verzonden!", "Message Sent!"),
-      description: t(
-        "Wij nemen zo snel mogelijk contact met u op.",
-        "We will contact you as soon as possible."
-      ),
-    });
+    if (import.meta.env.DEV) {
+      console.log("[Contact form] Submitting payload:", payload);
+    }
+
+    if (!formId) {
+      setIsSubmitting(false);
+      if (import.meta.env.DEV) {
+        console.warn(
+          "[Contact form] No VITE_FORMSPREE_FORM_ID set. Add it to .env and rebuild. Using simulated success for testing."
+        );
+        setIsSubmitted(true);
+        toast({
+          title: t("Bericht Verzonden!", "Message Sent!"),
+          description: t(
+            "Wij nemen zo snel mogelijk contact met u op.",
+            "We will contact you as soon as possible."
+          ),
+        });
+      } else {
+        toast({
+          variant: "destructive",
+          title: t("Formulier niet geconfigureerd", "Form not configured"),
+          description: t(
+            "E-mail verzenden is nog niet ingesteld. Neem contact op via info@tophuis.be.",
+            "Email sending is not set up yet. Please contact info@tophuis.be."
+          ),
+        });
+      }
+      return;
+    }
+
+    try {
+      const res = await fetch(`https://formspree.io/f/${formId}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (import.meta.env.DEV) {
+        console.log("[Contact form] Response status:", res.status, res.statusText);
+      }
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        if (import.meta.env.DEV) console.log("[Contact form] Error response:", data);
+        throw new Error(data.error || `HTTP ${res.status}`);
+      }
+
+      setIsSubmitted(true);
+      toast({
+        title: t("Bericht Verzonden!", "Message Sent!"),
+        description: t(
+          "Wij nemen zo snel mogelijk contact met u op.",
+          "We will contact you as soon as possible."
+        ),
+      });
+    } catch (err) {
+      if (import.meta.env.DEV) {
+        console.error("[Contact form] Submit failed:", err);
+      }
+      toast({
+        variant: "destructive",
+        title: t("Verzenden mislukt", "Send failed"),
+        description: t(
+          "Uw bericht kon niet worden verzonden. Probeer het later opnieuw of mail naar info@tophuis.be.",
+          "Your message could not be sent. Please try again later or email info@tophuis.be."
+        ),
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
