@@ -72,10 +72,10 @@ export default function Contact() {
                   <div>
                     <h3 className="text-lg font-semibold mb-1">{t("E-mail", "Email")}</h3>
                     <a
-                      href="mailto:gabimuresa2289@gmail.com"
+                      href="mailto:info@tophuis.be"
                       className="text-muted-foreground hover:text-secondary transition-colors"
                     >
-                      gabimuresa2289@gmail.com
+                      info@tophuis.be
                     </a>
                   </div>
                 </div>

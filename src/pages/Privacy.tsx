@@ -44,7 +44,7 @@ export default function Privacy() {
               TopHuis BV<br />
               {t("Adres", "Address")}: Grote Baan 21, 9920 Lievegem, {t("België", "Belgium")}<br />
               {t("Ondernemingsnummer (KBO)", "Company number (KBO)")}: BE 1022.501.249<br />
-              E-mail: privacy@tophuis.be<br />
+              E-mail: info@tophuis.be<br />
               {t("Telefoon", "Phone")}: +32 493 28 88 87
             </p>
 
@@ -130,7 +130,7 @@ export default function Privacy() {
               <li>{t("Uw toestemming in te trekken (bijv. voor marketingfoto's) op elk moment.", "Withdraw your consent (e.g. for marketing photos) at any time.")}</li>
             </ul>
             <p className="text-muted-foreground mb-6">
-              {t("Om deze rechten uit te oefenen, kunt u contact met ons opnemen via privacy@tophuis.be.", "To exercise these rights, you can contact us at privacy@tophuis.be.")}
+              {t("Om deze rechten uit te oefenen, kunt u contact met ons opnemen via info@tophuis.be.", "To exercise these rights, you can contact us at info@tophuis.be.")}
             </p>
 
             <h2 className="text-xl font-heading font-semibold mb-4">
