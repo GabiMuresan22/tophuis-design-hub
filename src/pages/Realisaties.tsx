@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { X, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Helmet } from "react-helmet-async";
 import galleryKitchen from "@/assets/keuken-renovatie-1.webp";
 import galleryKitchen2 from "@/assets/kitchen.webp";
 import galleryBathroom from "@/assets/bad-kamer-renovatie.webp";
@@ -164,6 +165,18 @@ export default function Realisaties() {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Onze Realisaties | Tophuis Design Hub</title>
+        <meta
+          name="description"
+          content="Bekijk een selectie van onze afgeronde projecten in West-Vlaanderen. Elk project weerspiegelt onze toewijding aan kwaliteit en vakmanschap."
+        />
+        <link rel="canonical" href="https://www.tophuis.be/realisaties" />
+        <meta property="og:title" content="Onze Realisaties | Tophuis Design Hub" />
+        <meta property="og:description" content="Bekijk een selectie van onze afgeronde projecten. Keukenrenovaties, badkamerrenovaties en totaalrenovaties." />
+        <meta property="og:url" content="https://www.tophuis.be/realisaties" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       {/* Hero */}
       <section className="bg-primary py-20">
         <div className="container-wide text-center">
@@ -215,6 +228,9 @@ export default function Realisaties() {
                     src={project.image}
                     alt={project.title}
                     className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
+                    width={600}
+                    height={400}
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute bottom-0 left-0 right-0 p-6 text-primary-foreground">

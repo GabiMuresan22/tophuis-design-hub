@@ -14,9 +14,10 @@ export function Footer() {
   ];
 
   const services = [
-    t("Vloeren", "Flooring"),
-    t("Schilderwerken", "Painting"),
-    t("Sanitair & Loodgieterij", "Plumbing & Fixtures"),
+    t("Totaalrenovatie", "Total Renovation"),
+    t("Badkamerrenovatie", "Bathroom Renovation"),
+    t("Energetische Renovatie", "Energy Renovation"),
+    t("Vloeren & Schilderwerken", "Flooring & Painting"),
   ];
 
   return (
@@ -30,6 +31,9 @@ export function Footer() {
                 src="/assets/logo.png" 
                 alt="TopHuis - Uw Visie, Onze Perfectie" 
                 className="h-12 w-auto brightness-0 invert"
+                width={150}
+                height={48}
+                loading="lazy"
               />
             </div>
             <p className="text-primary-foreground/80 mb-6">

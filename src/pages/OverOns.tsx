@@ -3,6 +3,7 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Award, Users, Clock, ThumbsUp, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Helmet } from "react-helmet-async";
 import heroImage from "@/assets/hero-img.webp";
 
 export default function OverOns() {
@@ -48,6 +49,18 @@ export default function OverOns() {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Over Ons | Tophuis Design Hub</title>
+        <meta
+          name="description"
+          content="Met passie voor renovatie en oog voor detail bouwen wij al meer dan 15 jaar aan de dromen van onze klanten. Ontdek het verhaal en de waarden van TopHuis."
+        />
+        <link rel="canonical" href="https://www.tophuis.be/over-ons" />
+        <meta property="og:title" content="Over Ons | Tophuis Design Hub" />
+        <meta property="og:description" content="Meer dan 15 jaar ervaring in renovatie. Vakmanschap, betrouwbaarheid en klantgerichtheid." />
+        <meta property="og:url" content="https://www.tophuis.be/over-ons" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       {/* Hero */}
       <section className="bg-primary py-20">
         <div className="container-wide text-center">
@@ -93,6 +106,9 @@ export default function OverOns() {
                 src={heroImage}
                 alt={t("TopHuis team aan het werk", "TopHuis team at work")}
                 className="rounded shadow-architect-lg w-full h-96 object-cover"
+                width={600}
+                height={400}
+                loading="lazy"
               />
             </div>
           </div>
