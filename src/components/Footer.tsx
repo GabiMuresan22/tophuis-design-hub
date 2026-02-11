@@ -14,9 +14,10 @@ export function Footer() {
   ];
 
   const services = [
-    t("Vloeren", "Flooring"),
-    t("Schilderwerken", "Painting"),
-    t("Sanitair & Loodgieterij", "Plumbing & Fixtures"),
+    t("Totaalrenovatie", "Total Renovation"),
+    t("Badkamerrenovatie", "Bathroom Renovation"),
+    t("Energetische Renovatie", "Energy Renovation"),
+    t("Vloeren & Schilderwerken", "Flooring & Painting"),
   ];
 
   return (

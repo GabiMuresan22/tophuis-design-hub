@@ -46,7 +46,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-8" aria-label="Hoofdnavigatie">
             {currentNavItems.map((item) => (
               <Link
                 key={item.path}
@@ -63,7 +63,7 @@ export function Header() {
           </nav>
 
           {/* Tablet Navigation */}
-          <nav className="hidden md:flex lg:hidden items-center gap-4">
+          <nav className="hidden md:flex lg:hidden items-center gap-4" aria-label="Hoofdnavigatie">
             {currentNavItems.map((item) => (
               <Link
                 key={item.path}
@@ -133,7 +133,7 @@ export function Header() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden border-t border-border py-4 animate-fade-in">
-            <nav className="flex flex-col gap-4">
+            <nav className="flex flex-col gap-4" aria-label="Mobiele navigatie">
               {currentNavItems.map((item) => (
                 <Link
                   key={item.path}
