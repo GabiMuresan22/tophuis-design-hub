@@ -30,7 +30,7 @@ const App = () => (
           <BrowserRouter>
             <GoogleAnalyticsTracker />
             <ScrollToTop />
-            <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Loading...</div>}>
+            <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Laden...</div>}>
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/diensten" element={<Diensten />} />

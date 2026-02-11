@@ -103,7 +103,7 @@ export default function Index() {
               "postalCode": "9920",
               "addressCountry": "BE"
             },
-            "openingHours": "Mo-Fr 08:00-17:00"
+            "openingHours": ["Mo-Fr 08:00-17:00", "Sa by appointment"]
           })}
         </script>
       </Helmet>
