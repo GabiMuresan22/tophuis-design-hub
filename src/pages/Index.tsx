@@ -3,6 +3,7 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Star } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Helmet } from "react-helmet-async";
 import heroImage from "@/assets/hero-img.webp";
 import galleryKitchen from "@/assets/kitchen.webp";
 import galleryBathroom from "@/assets/bad-kamer-renovatie.webp";
@@ -10,25 +11,23 @@ import galleryBathroom from "@/assets/bad-kamer-renovatie.webp";
 export default function Index() {
   const { t } = useLanguage();
 
-  // În loc de Roofing, Painting, etc., pune:
   const services = [
     {
-      title: t("Totaalrenovatie", "Total Renovation"), // "Produsul" Principal
+      title: t("Totaalrenovatie", "Total Renovation"),
       description: t(
         "Van A tot Z coördinatie. Eén aanspreekpunt voor uw volledige verbouwing.",
         "A to Z coordination. One point of contact for your complete renovation."
       ),
-      // Link către pagina dedicată Totaalrenovatie
     },
     {
-      title: t("Badkamer in 10 Dagen", "Bathroom in 10 Days"), // "Produsul" Rapid (SaniXL style)
+      title: t("Badkamer in 10 Dagen", "Bathroom in 10 Days"),
       description: t(
         "Kies uit onze Smart, Comfort of Wellness pakketten.",
         "Choose from our Smart, Comfort or Wellness packages."
       ),
     },
     {
-      title: t("Energetische Renovatie", "Energy Renovation"), // "Produsul" Legislativ
+      title: t("Energetische Renovatie", "Energy Renovation"),
       description: t(
         "EPC optimalisatie, warmtepompen en isolatie conform 2025.",
         "EPC optimization, heat pumps and insulation in line with 2025 standards."
@@ -77,6 +76,37 @@ export default function Index() {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Totaalrenovatie & Interieur West-Vlaanderen | Tophuis Design Hub</title>
+        <meta
+          name="description"
+          content="Zoekt u een zorgeloze totaalrenovatie in Roeselare of Kortrijk? Van 3D-ontwerp tot oplevering met één aanspreekpunt. Vraag uw gratis offerte aan!"
+        />
+        <link rel="canonical" href="https://www.tophuis.be/" />
+        <meta property="og:title" content="Totaalrenovatie & Interieur West-Vlaanderen | Tophuis Design Hub" />
+        <meta property="og:description" content="Zoekt u een zorgeloze totaalrenovatie in Roeselare of Kortrijk? Van 3D-ontwerp tot oplevering met één aanspreekpunt." />
+        <meta property="og:url" content="https://www.tophuis.be/" />
+        <meta property="og:type" content="website" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Tophuis Design Hub",
+            "description": "Totaalrenovatie & Interieur in West-Vlaanderen en Oost-Vlaanderen",
+            "url": "https://www.tophuis.be/",
+            "telephone": "+32493288887",
+            "email": "info@tophuis.be",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Grote Baan 21",
+              "addressLocality": "Lievegem",
+              "postalCode": "9920",
+              "addressCountry": "BE"
+            },
+            "openingHours": "Mo-Fr 08:00-17:00"
+          })}
+        </script>
+      </Helmet>
       {/* Hero Section */}
       <section className="relative min-h-[85vh] flex items-center">
         <div
@@ -178,11 +208,17 @@ export default function Index() {
                 src={galleryKitchen}
                 alt={t("Keuken renovatie", "Kitchen renovation")}
                 className="rounded shadow-architect-lg w-full h-64 object-cover"
+                width={600}
+                height={400}
+                loading="lazy"
               />
               <img
                 src={galleryBathroom}
                 alt={t("Badkamer renovatie", "Bathroom renovation")}
                 className="rounded shadow-architect-lg w-full h-64 object-cover mt-8"
+                width={600}
+                height={400}
+                loading="lazy"
               />
             </div>
           </div>

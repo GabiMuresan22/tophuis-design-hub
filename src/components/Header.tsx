@@ -42,6 +42,8 @@ export function Header() {
               src="/assets/logo.png" 
               alt="TopHuis - Uw Visie, Onze Perfectie" 
               className="h-12 w-auto"
+              width={150}
+              height={48}
             />
           </Link>
 

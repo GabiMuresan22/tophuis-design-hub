@@ -3,6 +3,7 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Helmet } from "react-helmet-async";
 import galleryVloer from "@/assets/floor.webp";
 import galleryKitchen from "@/assets/keuken-renovatie-1.webp";
 import galleryBathroom from "@/assets/bad-kamer-renovatie.webp";
@@ -66,6 +67,18 @@ export default function Diensten() {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Onze Diensten | Tophuis Design Hub</title>
+        <meta
+          name="description"
+          content="Vloeren, schilderwerken, sanitair & loodgieterij. Van dak tot vloer bieden wij een complete renovatieservice voor uw woning in West-Vlaanderen."
+        />
+        <link rel="canonical" href="https://www.tophuis.be/diensten" />
+        <meta property="og:title" content="Onze Diensten | Tophuis Design Hub" />
+        <meta property="og:description" content="Van dak tot vloer bieden wij een complete renovatieservice voor uw woning in West-Vlaanderen." />
+        <meta property="og:url" content="https://www.tophuis.be/diensten" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       {/* Hero */}
       <section className="bg-primary py-20">
         <div className="container-wide text-center">
@@ -119,6 +132,9 @@ export default function Diensten() {
                     src={service.image}
                     alt={service.title}
                     className="rounded shadow-architect-lg w-full h-80 lg:h-96 object-cover"
+                    width={600}
+                    height={400}
+                    loading="lazy"
                   />
                 </div>
               </div>

@@ -1,11 +1,24 @@
 import { Layout } from "@/components/Layout";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Helmet } from "react-helmet-async";
 
 export default function Terms() {
   const { t } = useLanguage();
 
   return (
     <Layout>
+      <Helmet>
+        <title>Algemene Voorwaarden | Tophuis Design Hub</title>
+        <meta
+          name="description"
+          content="Lees onze algemene voorwaarden. Deze zijn van toepassing op elk bezoek aan de website en elke overeenkomst tussen TopHuis en de klant."
+        />
+        <link rel="canonical" href="https://www.tophuis.be/terms" />
+        <meta property="og:title" content="Algemene Voorwaarden | Tophuis Design Hub" />
+        <meta property="og:description" content="Onze algemene voorwaarden voor diensten en producten." />
+        <meta property="og:url" content="https://www.tophuis.be/terms" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <section className="bg-primary py-16">
         <div className="container-wide text-center">
           <h1 className="text-primary-foreground mb-4">

@@ -31,6 +31,9 @@ export function Footer() {
                 src="/assets/logo.png" 
                 alt="TopHuis - Uw Visie, Onze Perfectie" 
                 className="h-12 w-auto brightness-0 invert"
+                width={150}
+                height={48}
+                loading="lazy"
               />
             </div>
             <p className="text-primary-foreground/80 mb-6">

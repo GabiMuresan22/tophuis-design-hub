@@ -1,12 +1,25 @@
 import { Layout } from "@/components/Layout";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Helmet } from "react-helmet-async";
 
 export default function Contact() {
   const { t } = useLanguage();
 
   return (
     <Layout>
+      <Helmet>
+        <title>Contact | Tophuis Design Hub</title>
+        <meta
+          name="description"
+          content="Neem contact op met Tophuis voor een gratis offerte. Bel +32 493 28 88 87 of gebruik ons contactformulier. Wij staan voor u klaar."
+        />
+        <link rel="canonical" href="https://www.tophuis.be/contact" />
+        <meta property="og:title" content="Contact | Tophuis Design Hub" />
+        <meta property="og:description" content="Neem contact op met Tophuis voor een gratis offerte. Grote Baan 21, 9920 Lievegem." />
+        <meta property="og:url" content="https://www.tophuis.be/contact" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       {/* Hero */}
       <section className="bg-primary py-20">
         <div className="container-wide text-center">
@@ -88,6 +101,7 @@ export default function Contact() {
                     <h3 className="text-lg font-semibold mb-1">{t("Openingsuren", "Opening Hours")}</h3>
                     <p className="text-muted-foreground">
                       {t("Maandag - Vrijdag", "Monday - Friday")}: 08:00 - 17:00<br />
+                      {t("Zaterdag", "Saturday")}: {t("Op afspraak", "By appointment")}<br />
                       {t("Zondag", "Sunday")}: {t("Gesloten", "Closed")}
                     </p>
                   </div>
@@ -102,7 +116,8 @@ export default function Contact() {
                 title="TopHuis Contact Form"
                 src="https://form.jotform.com/260382173384357"
                 allowFullScreen
-                allow="geolocation; microphone; camera"
+                allow="geolocation"
+                loading="lazy"
                 className="w-full h-full border-none"
                 style={{ minHeight: "600px" }}
               />

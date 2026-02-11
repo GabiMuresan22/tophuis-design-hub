@@ -1,11 +1,24 @@
 import { Layout } from "@/components/Layout";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Helmet } from "react-helmet-async";
 
 export default function Privacy() {
   const { t } = useLanguage();
 
   return (
     <Layout>
+      <Helmet>
+        <title>Privacybeleid | Tophuis Design Hub</title>
+        <meta
+          name="description"
+          content="Lees ons privacybeleid. TopHuis hecht veel waarde aan de bescherming van uw persoonsgegevens volgens de AVG/GDPR wetgeving."
+        />
+        <link rel="canonical" href="https://www.tophuis.be/privacy" />
+        <meta property="og:title" content="Privacybeleid | Tophuis Design Hub" />
+        <meta property="og:description" content="Ons privacybeleid volgens de AVG/GDPR wetgeving." />
+        <meta property="og:url" content="https://www.tophuis.be/privacy" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <section className="bg-primary py-16">
         <div className="container-wide text-center">
           <h1 className="text-primary-foreground mb-4">
