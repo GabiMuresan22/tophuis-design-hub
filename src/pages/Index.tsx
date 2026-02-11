@@ -103,7 +103,20 @@ export default function Index() {
               "postalCode": "9920",
               "addressCountry": "BE"
             },
-            "openingHours": ["Mo-Fr 08:00-17:00", "Sa by appointment"]
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "08:00",
+                "closes": "17:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "00:00",
+                "closes": "00:00"
+              }
+            ]
           })}
         </script>
       </Helmet>
