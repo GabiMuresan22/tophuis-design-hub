@@ -1,0 +1,21 @@
+# Ensure correct MIME types for module scripts (fixes "Expected JavaScript" errors)
+<IfModule mod_mime.c>
+  AddType application/javascript .js
+  AddType text/css .css
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Never rewrite assets (JS, CSS, images) – avoid MIME type errors on Combell
+  RewriteRule ^assets/ - [L]
+
+  # Leave index.html as-is
+  RewriteRule ^index\.html$ - [L]
+
+  # SPA fallback: only rewrite if the request is not an existing file or directory
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
