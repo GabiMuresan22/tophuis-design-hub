@@ -133,6 +133,9 @@ export function Footer() {
               <Link to="/terms" className="hover:text-secondary transition-colors">
                 {t("Algemene Voorwaarden", "Terms & Conditions")}
               </Link>
+              <Link to="/accessibility" className="hover:text-secondary transition-colors">
+                {t("Toegankelijkheid", "Accessibility")}
+              </Link>
             </div>
           </div>
         </div>
