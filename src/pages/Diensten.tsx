@@ -119,6 +119,10 @@ export default function Diensten() {
                     src={service.image}
                     alt={service.title}
                     className="rounded shadow-architect-lg w-full h-80 lg:h-96 object-cover"
+                    loading="lazy"
+                    decoding="async"
+                    width={400}
+                    height={384}
                   />
                 </div>
               </div>
