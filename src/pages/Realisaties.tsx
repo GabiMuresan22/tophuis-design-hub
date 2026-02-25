@@ -215,6 +215,10 @@ export default function Realisaties() {
                     src={project.image}
                     alt={project.title}
                     className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                    decoding="async"
+                    width={400}
+                    height={288}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute bottom-0 left-0 right-0 p-6 text-primary-foreground">

@@ -178,11 +178,19 @@ export default function Index() {
                 src={galleryKitchen}
                 alt={t("Keuken renovatie", "Kitchen renovation")}
                 className="rounded shadow-architect-lg w-full h-64 object-cover"
+                loading="lazy"
+                decoding="async"
+                width={400}
+                height={256}
               />
               <img
                 src={galleryBathroom}
                 alt={t("Badkamer renovatie", "Bathroom renovation")}
                 className="rounded shadow-architect-lg w-full h-64 object-cover mt-8"
+                loading="lazy"
+                decoding="async"
+                width={400}
+                height={256}
               />
             </div>
           </div>
