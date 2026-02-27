@@ -24,7 +24,7 @@ export function CookieConsent() {
   const handleAccept = () => {
     localStorage.setItem(COOKIE_CONSENT_KEY, "accepted");
     setIsVisible(false);
-    // Start Google Analytics only after user accepts
+    // GA loads and tracks only from here (or when GoogleAnalyticsTracker sees consent)
     initGoogleAnalytics();
     trackPageView(location.pathname + location.search, document.title);
   };

@@ -3,22 +3,22 @@ import { useLocation } from "react-router-dom";
 import { hasConsent, initGoogleAnalytics, trackPageView } from "@/lib/analytics";
 
 /**
- * Initializes GA when the app loads if user has already accepted cookies (returning visitors).
- * Tracks page_view on every route change when consent is given.
+ * Runs GA only after the user has accepted cookies (see CookieConsent).
+ * - Does nothing until hasConsent() is true (set when user clicks "Accepteren").
+ * - For returning visitors: inits GA and tracks current page when consent was already given.
+ * - On every route change: sends page_view only when consent is given.
  */
 export function GoogleAnalyticsTracker() {
   const location = useLocation();
 
-  // On mount: if user already accepted before, init GA (returning visitors)
   useEffect(() => {
-    if (hasConsent()) initGoogleAnalytics();
+    if (!hasConsent()) return;
+    initGoogleAnalytics();
   }, []);
 
-  // On route change (and initial load): track page view when consent is given
   useEffect(() => {
-    if (hasConsent()) {
-      trackPageView(location.pathname + location.search, document.title);
-    }
+    if (!hasConsent()) return;
+    trackPageView(location.pathname + location.search, document.title);
   }, [location.pathname, location.search]);
 
   return null;
