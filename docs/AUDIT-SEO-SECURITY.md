@@ -4,6 +4,8 @@
 **Stack:** React, Vite, TypeScript  
 **Date:** 2026
 
+**Master checklist:** For the full audit across all areas (Security, SEO, Google Visibility, Design/UX, Performance, Content, CRO, Legal), see **[WEBSITE-AUDIT.md](./WEBSITE-AUDIT.md)**. This document is a **technical deep-dive** on SEO, security, and developer improvements only.
+
 ---
 
 ## Executive summary

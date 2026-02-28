@@ -1,5 +1,9 @@
 # Website Audit Implementation Summary
 
+**Master checklist:** The single source of truth for audit status is **[WEBSITE-AUDIT.md](./WEBSITE-AUDIT.md)** (Security, SEO, Google Visibility, Design/UX, Performance, Content, CRO, Legal). This document summarizes what was implemented and how to use it.
+
+---
+
 ## Overview
 
 This implementation provides a comprehensive website audit framework for the Tophuis Design Hub website. The framework addresses all eight areas specified in the audit requirements:

@@ -1,6 +1,6 @@
 # Quick Audit Reference Guide
 
-This document provides quick commands and links to run manual audits on the Tophuis Design Hub website.
+**Master checklist:** The full audit (Security, SEO, Google Visibility, Design/UX, Performance, Content, CRO, Legal) is in **[WEBSITE-AUDIT.md](./WEBSITE-AUDIT.md)**. This guide provides quick commands and links for manual audits.
 
 ## Automated Audit
 

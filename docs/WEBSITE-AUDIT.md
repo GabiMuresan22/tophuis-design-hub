@@ -1,256 +1,285 @@
-# Complete Website Audit Framework
+# Comprehensive Website Audit
 
-This document provides a comprehensive checklist for auditing the Tophuis Design Hub website across all critical areas.
-
-## 1️⃣ Security Audit Framework
-
-### 🔐 A. Infrastructure & Server Security
-
-- [x] **HTTPS enabled** - Valid SSL certificate configured
-- [x] **No mixed content** - All resources served over HTTPS
-- [x] **HTTP → HTTPS redirect** - Configured in `.htaccess`
-- [ ] **Secure hosting provider** - Verify with hosting provider (Combell)
-- [ ] **Firewall enabled** - Check server configuration
-- [ ] **DDoS protection** - Verify with hosting provider
-- [ ] **Server software up to date** - Regular maintenance required
-- [x] **Secure admin URL** - No exposed admin panel
-
-### 🔑 B. Authentication & Access
-
-- [ ] **Strong password policy** - Implement on deployment
-- [ ] **2FA enabled** - Enable for deployment access
-- [ ] **Login rate limiting** - Configure at server level
-- [x] **CAPTCHA on forms** - Contact form includes validation
-- [ ] **Role-based access control** - Not applicable (static site)
-- [x] **No default admin usernames** - Not applicable
-
-### 🛡 C. Technical Security Headers
-
-**Status**: To be configured at server/hosting level:
-- [ ] Content-Security-Policy (CSP)
-- [ ] X-Frame-Options
-- [ ] X-XSS-Protection
-- [ ] Strict-Transport-Security (HSTS)
-- [ ] Referrer-Policy
-
-**Implementation**: Add to `.htaccess` or server configuration
-
-### 🧪 D. Vulnerability Checks
-
-- [ ] **Malware scan** - Regular scanning required
-- [x] **SQL injection protection** - Not applicable (no backend database)
-- [x] **XSS protection** - React provides built-in protection
-- [x] **File upload restrictions** - No file upload functionality
-- [x] **Updated plugins/themes** - Dependencies managed via npm
-
-### 🔒 E. Data Protection
-
-- [x] **Privacy policy page** - `/privacy` exists with GDPR compliance
-- [ ] **Cookie consent** - Implement cookie banner
-- [x] **Secure form submissions** - Forms submitted over HTTPS
-- [x] **Encrypted stored data** - No sensitive data storage
-- [ ] **Regular backups** - Configure with hosting provider
-
-## 2️⃣ SEO Audit Framework
-
-### 🔎 A. Technical SEO
-
-#### Indexing
-- [ ] **Site indexed in Google** - Verify `site:tophuis.be` in Google
-- [ ] **XML sitemap submitted** - Generate and submit to Google Search Console
-- [x] **robots.txt configured** - Exists in `/public/robots.txt`
-- [x] **No accidental noindex tags** - Verified in HTML
-- [ ] **Canonical tags implemented** - Add to pages
-
-#### Crawlability
-- [ ] **No broken links** - Run link checker
-- [x] **Proper internal linking** - Navigation structure in place
-- [x] **Clean URL structure** - SPA with clean routes
-- [ ] **Breadcrumbs implemented** - Add breadcrumb navigation
-
-#### Performance
-- [ ] **PageSpeed score checked** - Test with Google PageSpeed Insights
-- [ ] **Core Web Vitals optimized** - Monitor and optimize
-  - [ ] LCP (Largest Contentful Paint)
-  - [ ] CLS (Cumulative Layout Shift)
-  - [ ] INP (Interaction to Next Paint)
-- [ ] **Optimized images** - Convert to WebP format
-- [ ] **Lazy loading enabled** - Implement for images
-
-### 🧠 B. On-Page SEO
-
-- [x] **Unique title tags** - Present in `index.html` (under 60 chars)
-- [x] **Unique meta descriptions** - Present in `index.html`
-- [x] **Proper heading structure** - H1-H6 hierarchy in components
-- [x] **Keyword optimization** - Keywords in meta tags
-- [ ] **Image alt text** - Verify all images have alt attributes
-- [ ] **Schema markup** - Add structured data (LocalBusiness, Service)
-- [x] **Content length & quality** - Pages have substantial content
-- [x] **Clear internal linking strategy** - Navigation and footer links
-
-### 📈 C. Off-Page SEO
-
-- [ ] **Backlink profile checked** - Monitor with SEO tools
-- [ ] **Toxic links reviewed** - Regular monitoring required
-- [ ] **Google Business Profile optimized** - Claim and optimize listing
-- [ ] **Brand mentions** - Monitor online mentions
-- [x] **Social media linking** - Add social media links to footer
-
-## 3️⃣ Google Search & Visibility Framework
-
-### 📊 A. Google Tools Setup
-
-- [ ] **Google Search Console configured** - Register domain
-- [ ] **Google Analytics installed** - Component exists (`GoogleAnalyticsTracker`)
-- [ ] **Conversion tracking setup** - Configure goals in GA
-- [ ] **Sitemap submitted** - Submit to Search Console
-- [ ] **Manual actions checked** - Monitor Search Console
-
-### 🔍 B. SERP Optimization
-
-- [ ] **Rich snippets appearing** - Test with Rich Results Test
-- [ ] **Featured snippet opportunities** - Identify and optimize content
-- [ ] **Optimized FAQ schema** - Add FAQ structured data
-- [ ] **Optimized for People Also Ask** - Create relevant Q&A content
-- [ ] **Branded search results controlled** - Monitor brand SERPs
-
-### 📍 C. Local SEO (Applicable)
-
-- [ ] **Google Business Profile verified** - Lievegem, Belgium location
-- [ ] **NAP consistency** - Verify Name, Address, Phone across web
-  - Name: Tophuis Design Hub / TopHuis BV
-  - Address: Grote Baan 21, 9920 Lievegem, Belgium
-  - Phone: +32 493 28 88 87
-- [ ] **Reviews management** - Encourage and respond to reviews
-- [ ] **Local schema markup** - Add LocalBusiness schema
-
-## 4️⃣ Design & UX Audit Framework
-
-### 🎨 A. Visual Design
-
-- [x] **Consistent color palette** - Tailwind theme configured
-- [x] **Typography hierarchy** - Font system in place
-- [x] **Proper spacing** - Tailwind spacing utilities used
-- [x] **Clean layout** - Modern, professional design
-- [x] **No clutter** - Minimalist approach
-
-### 📱 B. Mobile Responsiveness
-
-- [x] **Fully responsive design** - Tailwind responsive utilities
-- [x] **Touch-friendly buttons** - Adequate button sizes
-- [x] **Proper mobile navigation** - Responsive menu
-- [x] **No horizontal scrolling** - Viewport meta tag configured
-- [ ] **Mobile PageSpeed score** - Test separately for mobile
-
-### 👥 C. User Experience (UX)
-
-- [x] **Clear CTA buttons** - Present on pages
-- [x] **Easy navigation** - Max 3 clicks rule applied
-- [ ] **Fast loading pages** - Optimize to <3 seconds
-- [x] **Accessible forms** - Contact form is user-friendly
-- [x] **Clear value proposition** - Above the fold on homepage
-
-### ♿ D. Accessibility
-
-- [ ] **WCAG compliance basics** - Audit with accessibility tools
-- [ ] **Alt text on images** - Add to all images
-- [x] **Keyboard navigability** - Standard browser behavior
-- [ ] **Proper contrast ratio** - Test with accessibility checker
-- [ ] **ARIA labels** - Add where necessary
-
-## 5️⃣ Performance & Technical Framework
-
-### ⚡ A. Speed Optimization
-
-- [ ] **CDN enabled** - Configure with hosting/Vercel
-- [ ] **Image compression** - Optimize all images
-- [x] **Minified CSS/JS** - Vite build process handles this
-- [ ] **GZIP/Brotli compression** - Enable at server level
-- [ ] **Caching enabled** - Configure cache headers
-
-### 🧱 B. Technical Structure
-
-- [x] **Clean code** - TypeScript + React best practices
-- [ ] **No console errors** - Test in production build
-- [ ] **Structured data validation** - Test with Schema.org validator
-- [x] **No duplicate pages** - Clean routing structure
-- [x] **Proper 301 redirects** - SPA routing handles this
-
-## 6️⃣ Content Quality Framework
-
-### ✍️ Content Audit
-
-- [x] **Unique content** - Original content on all pages
-- [x] **No plagiarism** - Original text
-- [x] **Clear messaging** - Value proposition clear
-- [x] **Targeted keywords** - Dutch keywords for renovation services
-- [ ] **Updated outdated content** - Regular content review needed
-- [ ] **Blog strategy implemented** - Consider adding blog section
-- [x] **Proper internal linking** - Navigation and contextual links
-
-## 7️⃣ Conversion Optimization Framework (CRO)
-
-- [x] **Clear CTA** - Contact buttons throughout site
-- [x] **Lead capture forms** - Contact page with form
-- [ ] **Thank-you pages** - Add confirmation page after form submission
-- [ ] **Heatmap tracking** - Consider tools like Hotjar
-- [ ] **A/B testing** - Consider for key pages
-- [ ] **Trust signals** - Add reviews, certifications, badges
-- [x] **Clear pricing** - Services described with process
-
-## 8️⃣ Legal & Compliance Framework
-
-- [x] **Privacy Policy** - Comprehensive GDPR-compliant policy at `/privacy`
-- [x] **Terms & Conditions** - Complete terms at `/terms`
-- [ ] **Cookie Policy** - Add cookie consent banner with policy
-- [x] **GDPR compliance** - Privacy policy covers GDPR requirements
-- [ ] **Accessibility statement** - Create accessibility statement page
-- [x] **Contact details visible** - Email and phone in footer/contact page
+**Site:** TopHuis (tophuis.be)  
+**Stack:** React, Vite, TypeScript  
+**Last updated:** 2026  
+**Related:** `AUDIT-SEO-SECURITY.md` (technical deep-dive), `AUDIT-QUICK-REFERENCE.md` (testing commands)
 
 ---
 
-## Priority Actions
+## Executive summary
 
-### High Priority (Immediate)
-1. Generate and submit XML sitemap to Google Search Console
-2. Add security headers to `.htaccess`
-3. Implement cookie consent banner
-4. Add schema markup for LocalBusiness
-5. Optimize images and enable lazy loading
-6. Add canonical tags to pages
-
-### Medium Priority (This Month)
-1. Run PageSpeed Insights and optimize performance
-2. Add breadcrumb navigation
-3. Verify all images have alt text
-4. Create accessibility statement
-5. Set up Google Search Console
-6. Implement thank-you page for contact form
-
-### Low Priority (Ongoing)
-1. Monitor backlink profile
-2. Regular content updates
-3. A/B testing implementation
-4. Blog strategy development
-5. Regular security scans
-6. Review analytics monthly
+The site has a strong base: security headers, cookie consent, GA (consent-gated), sitemap, robots.txt, Schema.org (LocalBusiness), canonical tags, privacy/terms/accessibility pages, and responsive design. Remaining work focuses on dependency updates, CSP for iframes, per-route meta/SEO, Google tools setup, performance tuning, and ongoing compliance checks.
 
 ---
 
-## Testing Tools
+## 1. Security
 
-- **SEO**: Google Search Console, Google PageSpeed Insights, Screaming Frog
-- **Security**: Mozilla Observatory, SecurityHeaders.com, SSL Labs
-- **Accessibility**: WAVE, axe DevTools, Lighthouse
-- **Performance**: GTmetrix, WebPageTest, Chrome DevTools
-- **Schema**: Google Rich Results Test, Schema.org Validator
+### A. Infrastructure & server
+
+| Check | Status | Notes |
+|-------|--------|------|
+| HTTPS enabled | ✅ | Valid SSL; HSTS in .htaccess |
+| No mixed content | ✅ | Resources over HTTPS |
+| HSTS | ✅ | max-age=31536000; includeSubDomains; preload |
+| Secure hosting (Combell) | ⬜ | Verify firewall, DDoS, backups with provider |
+| No exposed admin | ✅ | Static site; no admin panel |
+
+### B. Technical security headers (.htaccess)
+
+| Header | Status | Notes |
+|--------|--------|------|
+| X-Frame-Options | ✅ | SAMEORIGIN |
+| X-XSS-Protection | ✅ | 1; mode=block |
+| X-Content-Type-Options | ✅ | nosniff |
+| Referrer-Policy | ✅ | strict-origin-when-cross-origin |
+| Content-Security-Policy | ⚠️ | Present but missing **frame-src** for JotForm/Maps; script-src uses unsafe-inline/unsafe-eval |
+| Permissions-Policy | ✅ | geolocation, microphone, camera (restrictive; allow form.jotform.com if form needs them) |
+
+**Action:** Add `frame-src 'self' https://form.jotform.com https://www.google.com https://maps.google.com;` to CSP.
+
+### C. Application & data
+
+| Check | Status | Notes |
+|-------|--------|------|
+| Cookie consent | ✅ | Banner (CookieConsent); accept/decline; GA only after accept |
+| Privacy policy | ✅ | /privacy; GDPR-oriented |
+| No sensitive data in front end | ✅ | No API keys in code; use .env for secrets |
+| SQL injection / file upload | ✅ | N/A (static + JotForm iframe) |
+| XSS | ✅ | React escaping; one dangerouslySetInnerHTML in chart (trusted source) |
+
+### D. Dependencies
+
+| Check | Status | Notes |
+|-------|--------|------|
+| npm audit | ⚠️ | Run `npm audit`; fix reported issues (e.g. React Router, rollup, glob) |
+
+**Action:** Run `npm audit fix` and address remaining advisories.
 
 ---
 
-## Maintenance Schedule
+## 2. SEO
 
-- **Daily**: Monitor form submissions, check for errors
-- **Weekly**: Review analytics, check site functionality
-- **Monthly**: Content updates, backlink review, security updates
-- **Quarterly**: Full audit review, performance optimization
-- **Annually**: Comprehensive security audit, content strategy review
+### A. Technical SEO
+
+| Check | Status | Notes |
+|-------|--------|------|
+| robots.txt | ✅ | Allows crawlers; Sitemap URL set |
+| sitemap.xml | ✅ | All main routes + privacy, terms, accessibility; hreflang |
+| Sitemap submitted to GSC | ⬜ | Submit https://www.tophuis.be/sitemap.xml |
+| Canonical tags | ✅ | CanonicalTag component in Layout |
+| No accidental noindex | ✅ | No noindex on key pages |
+| Clean URLs | ✅ | /diensten, /contact, /privacy, etc. |
+| Internal linking | ✅ | Nav + footer links |
+| Breadcrumbs | ⬜ | Optional; add for SERP snippets |
+
+### B. On-page SEO
+
+| Check | Status | Notes |
+|-------|--------|------|
+| Title & description (index) | ✅ | In index.html |
+| Per-route title/meta | ⬜ | Single set in index; add per-route (e.g. Helmet or DocumentHead) |
+| Heading hierarchy | ✅ | H1 per page; logical structure |
+| Keywords in meta | ✅ | index.html |
+| Image alt text | ✅ | Alt on images (Index, Diensten, Realisaties, Header, Footer) |
+| Schema markup | ✅ | SchemaOrg (LocalBusiness) in Layout |
+| OG / Twitter meta | ✅ | index.html; ensure og-image exists in public/ |
+
+**Action:** Add per-route `<title>` and meta; confirm `/og-image-renovatie.jpg` exists; fix or remove hero preload in index.html (path is dev-only).
+
+### C. Off-page & local
+
+| Check | Status | Notes |
+|-------|--------|------|
+| Google Business Profile | ⬜ | Claim and optimize (Lievegem) |
+| NAP consistency | ✅ | Grote Baan 21, 9920 Lievegem; +32 493 28 88 87; info@tophuis.be |
+| Backlink monitoring | ⬜ | Use SEO tools periodically |
+
+---
+
+## 3. Google visibility
+
+### A. Tools setup
+
+| Check | Status | Notes |
+|-------|--------|------|
+| Google Analytics 4 | ✅ | GoogleAnalyticsTracker; consent-gated; ID G-KD3JP0LL2G |
+| Google Search Console | ⬜ | Add property; verify; submit sitemap |
+| Sitemap in GSC | ⬜ | After GSC setup |
+| Conversion tracking | ⬜ | Define goals/events in GA4 |
+| Tag verification | ✅ | GA reports tag installed on tophuis.be |
+
+### B. SERP & rich results
+
+| Check | Status | Notes |
+|-------|--------|------|
+| Rich results test | ⬜ | Test with Google Rich Results Test |
+| LocalBusiness in results | ⬜ | Validate SchemaOrg output |
+| Indexation check | ⬜ | Search `site:tophuis.be` |
+
+### C. Local SEO
+
+| Check | Status | Notes |
+|-------|--------|------|
+| LocalBusiness schema | ✅ | SchemaOrg component |
+| GBP verified | ⬜ | Same as Google Business Profile above |
+| Reviews | ⬜ | Encourage and respond |
+
+---
+
+## 4. Design & UX
+
+### A. Visual & layout
+
+| Check | Status | Notes |
+|-------|--------|------|
+| Consistent palette | ✅ | Tailwind theme |
+| Typography hierarchy | ✅ | Montserrat / Inter |
+| Responsive layout | ✅ | Tailwind; mobile nav |
+| Touch-friendly targets | ✅ | Buttons and links |
+| No horizontal scroll | ✅ | Viewport meta |
+
+### B. User experience
+
+| Check | Status | Notes |
+|-------|--------|------|
+| Clear CTAs | ✅ | Quote, Contact, View Work |
+| Navigation depth | ✅ | Shallow (home, diensten, realisaties, over-ons, contact) |
+| Contact form | ✅ | JotForm iframe; clear contact info |
+| Value proposition above fold | ✅ | Homepage hero |
+
+### C. Accessibility
+
+| Check | Status | Notes |
+|-------|--------|------|
+| Accessibility statement | ✅ | /accessibility |
+| Alt text | ✅ | On images |
+| Iframe titles | ✅ | Contact form and map |
+| Keyboard navigation | ✅ | Standard focus; ensure visible focus styles |
+| Skip to main content | ⬜ | Add skip link for keyboard users |
+| WCAG / contrast | ⬜ | Run WAVE or axe; fix issues |
+
+**Action:** Add skip link; run Lighthouse/WAVE and fix critical a11y issues.
+
+---
+
+## 5. Performance
+
+### A. Speed & assets
+
+| Check | Status | Notes |
+|-------|--------|------|
+| Minified JS/CSS | ✅ | Vite build |
+| Code splitting | ✅ | Lazy routes; Index eager |
+| Images (WebP etc.) | ✅ | WebP in use; keep optimizing new assets |
+| Lazy loading | ✅ | Route lazy load; consider loading="lazy" for below-fold images |
+| Hero preload | ⚠️ | index.html preload points to dev path; fix or remove |
+
+### B. Metrics & server
+
+| Check | Status | Notes |
+|-------|--------|------|
+| PageSpeed Insights | ⬜ | Run mobile + desktop; target 90+ |
+| Core Web Vitals | ⬜ | LCP &lt; 2.5s, CLS &lt; 0.1, INP &lt; 200ms |
+| Caching / compression | ⬜ | Configure on Combell (cache headers, GZIP/Brotli) |
+| CDN | ⬜ | Optional; check with host |
+
+---
+
+## 6. Content quality
+
+| Check | Status | Notes |
+|-------|--------|------|
+| Unique content | ✅ | Original copy |
+| Clear messaging | ✅ | Renovation, precision, craftsmanship |
+| NL/EN support | ✅ | useLanguage; key pages translated |
+| Internal links | ✅ | Nav and in-content links |
+| Regular updates | ⬜ | Plan content reviews |
+| Blog / long-form | ⬜ | Optional for SEO |
+
+---
+
+## 7. Conversion optimization (CRO)
+
+| Check | Status | Notes |
+|-------|--------|------|
+| Primary CTA | ✅ | “Offerte aanvragen” / “Request quote” |
+| Contact form | ✅ | JotForm iframe |
+| Contact visibility | ✅ | Phone, email, address on contact + footer |
+| Trust / social proof | ✅ | Testimonials on homepage |
+| Thank-you / confirmation | ⬜ | JotForm may provide; else consider post-submit message |
+| Heatmaps / A/B | ⬜ | Optional (e.g. Hotjar, GA experiments) |
+
+---
+
+## 8. Legal & compliance
+
+| Check | Status | Notes |
+|-------|--------|------|
+| Privacy policy | ✅ | /privacy; GDPR-oriented; contact info |
+| Terms & conditions | ✅ | /terms |
+| Cookie consent | ✅ | Banner; accept/decline; GA only after accept |
+| Cookie policy | ✅ | Referenced in privacy; banner explains use |
+| Accessibility statement | ✅ | /accessibility |
+| Contact details | ✅ | info@tophuis.be; phone; address |
+| GDPR alignment | ✅ | Consent, privacy notice, data subject rights mentioned |
+
+**Action:** Keep privacy/terms/accessibility in sync with actual data flows (e.g. JotForm, GA).
+
+---
+
+## Priority actions
+
+### High (do first)
+
+1. Run **`npm audit fix`** and fix remaining vulnerabilities.
+2. Add **frame-src** to CSP in `.htaccess` for JotForm and Google Maps.
+3. **Fix or remove** hero image preload in `index.html`.
+4. **Submit sitemap** and verify site in Google Search Console.
+5. Confirm **og-image-renovatie.jpg** exists in `public/` and is reachable.
+
+### Medium (this month)
+
+1. Add **per-route title and meta** (and canonical if needed per locale).
+2. Run **PageSpeed Insights** and Core Web Vitals; optimize as needed.
+3. Add **skip to main content** link and run **accessibility scan** (WAVE/axe).
+4. Set up **GA4 conversion events** (e.g. form submit, contact click).
+5. **Google Business Profile**: claim and optimize for Lievegem.
+
+### Low (ongoing)
+
+1. Update **sitemap lastmod** when content changes (or automate in build).
+2. Monitor **Search Console** and **analytics**; fix crawl/coverage issues.
+3. **Quarterly:** dependency updates, content review, security/SEO re-check.
+
+---
+
+## Testing tools
+
+| Area | Tools |
+|------|--------|
+| Security | SecurityHeaders.com, Mozilla Observatory, SSL Labs, `npm audit` |
+| SEO | Google Search Console, PageSpeed Insights, Rich Results Test, Screaming Frog |
+| Accessibility | WAVE, axe DevTools, Lighthouse |
+| Performance | PageSpeed Insights, GTmetrix, WebPageTest, Chrome DevTools |
+| Schema | Google Rich Results Test, validator.schema.org |
+
+---
+
+## Maintenance schedule
+
+| Frequency | Tasks |
+|-----------|--------|
+| Weekly | Check GA and form submissions; spot-check key pages |
+| Monthly | Search Console review; Core Web Vitals; content tweaks |
+| Quarterly | Full audit pass; dependency updates; privacy/terms review |
+| Annually | Broader security and SEO strategy review |
+
+---
+
+## Document index
+
+- **This file:** Master checklist (Security, SEO, Google, Design/UX, Performance, Content, CRO, Legal).
+- **AUDIT-SEO-SECURITY.md:** Technical deep-dive (CSP, dependencies, preload, frame-src, etc.).
+- **AUDIT-QUICK-REFERENCE.md:** Commands and links for manual tests (curl, Lighthouse, tools).
+- **AUDIT-IMPLEMENTATION.md:** Implementation summary and deployment checklist.
