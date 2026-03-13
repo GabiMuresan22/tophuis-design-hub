@@ -69,8 +69,8 @@ export default function Index() {
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 font-body">
               {t(
-                "Tophuis Design Hub is gespecialiseerd in totaalrenovaties, interieurwerken en technische installaties in Vlaanderen. Wij realiseren renovatieprojecten van ontwerp tot afwerking in steden zoals Gent, Roeselare, Kortrijk en omgeving.",
-                "Tophuis Design Hub specialises in total renovations, interior works and technical installations in Flanders. We deliver renovation projects from design to completion in cities such as Ghent, Roeselare, Kortrijk and surrounding areas."
+                "Tophuis is gespecialiseerd in totaalrenovaties, interieurwerken en technische installaties in Vlaanderen. Wij realiseren renovatieprojecten van ontwerp tot afwerking in steden zoals Gent, Roeselare, Kortrijk en omgeving.",
+                "Tophuis is specialises in total renovations, interior works and technical installations in Flanders. We deliver renovation projects from design to completion in cities such as Ghent, Roeselare, Kortrijk and surrounding areas."
               )}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -100,8 +100,8 @@ export default function Index() {
           <div className="prose prose-lg text-muted-foreground max-w-none">
             <p className="mb-4">
               {t(
-                "Tophuis Design Hub is uw partner voor totaalrenovatie en interieurwerken in West-Vlaanderen en Oost-Vlaanderen. Of u nu een volledige woningrenovatie, badkamerrenovatie of interieurverbouwing plant, wij begeleiden u van ontwerp tot afwerking. Onze ervaring in steden zoals Gent, Roeselare, Kortrijk en omgeving garandeert een professionele aanpak en een afgewerkt resultaat op maat van uw verwachtingen. Wij combineren vakmanschap met moderne technieken en werken met kwaliteitsmaterialen voor duurzame renovaties.",
-                "Tophuis Design Hub is your partner for total renovation and interior works in West Flanders and East Flanders. Whether you are planning a full home renovation, bathroom renovation or interior refurbishment, we guide you from design to completion. Our experience in cities such as Ghent, Roeselare, Kortrijk and the surrounding area guarantees a professional approach and a finished result tailored to your expectations. We combine craftsmanship with modern techniques and work with quality materials for sustainable renovations."
+                "Tophuis is uw partner voor totaalrenovatie en interieurwerken in West-Vlaanderen en Oost-Vlaanderen. Of u nu een volledige woningrenovatie, badkamerrenovatie of interieurverbouwing plant, wij begeleiden u van ontwerp tot afwerking. Onze ervaring in steden zoals Gent, Roeselare, Kortrijk en omgeving garandeert een professionele aanpak en een afgewerkt resultaat op maat van uw verwachtingen. Wij combineren vakmanschap met moderne technieken en werken met kwaliteitsmaterialen voor duurzame renovaties.",
+                "Tophuis is your partner for total renovation and interior works in West Flanders and East Flanders. Whether you are planning a full home renovation, bathroom renovation or interior refurbishment, we guide you from design to completion. Our experience in cities such as Ghent, Roeselare, Kortrijk and the surrounding area guarantees a professional approach and a finished result tailored to your expectations. We combine craftsmanship with modern techniques and work with quality materials for sustainable renovations."
               )}
             </p>
             <p>
@@ -125,8 +125,8 @@ export default function Index() {
           </h2>
           <p className="text-muted-foreground mb-6">
             {t(
-              "Tophuis Design Hub voert renovatieprojecten uit in verschillende steden in Vlaanderen. Wij zijn actief in zowel West-Vlaanderen als Oost-Vlaanderen en realiseren totaalrenovaties, badkamerrenovaties en interieurwerken voor particulieren en bedrijven.",
-              "Tophuis Design Hub carries out renovation projects in various cities in Flanders. We are active in both West Flanders and East Flanders and deliver total renovations, bathroom renovations and interior works for private clients and businesses."
+              "Tophuis voert renovatieprojecten uit in verschillende steden in Vlaanderen. Wij zijn actief in zowel West-Vlaanderen als Oost-Vlaanderen en realiseren totaalrenovaties, badkamerrenovaties en interieurwerken voor particulieren en bedrijven.",
+              "Tophuis carries out renovation projects in various cities in Flanders. We are active in both West Flanders and East Flanders and deliver total renovations, bathroom renovations and interior works for private clients and businesses."
             )}
           </p>
           <p className="text-muted-foreground mb-4">

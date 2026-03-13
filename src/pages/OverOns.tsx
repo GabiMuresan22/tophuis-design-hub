@@ -9,10 +9,10 @@ export default function OverOns() {
   const { t } = useLanguage();
 
   const stats = [
-    { icon: Clock, value: "15+", label: t("Jaar Ervaring", "Years Experience") },
-    { icon: Users, value: "500+", label: t("Tevreden Klanten", "Happy Clients") },
+    { icon: Clock, value: "10+", label: t("Jaar Ervaring", "Years Experience") },
+    { icon: Users, value: "50", label: t("Tevreden Klanten", "Happy Clients") },
     { icon: Award, value: "100%", label: t("Kwaliteitsgarantie", "Quality Guarantee") },
-    { icon: ThumbsUp, value: "1000+", label: t("Projecten Afgerond", "Projects Completed") },
+    { icon: ThumbsUp, value: "50+", label: t("Projecten Afgerond", "Projects Completed") },
   ];
 
   const values = [

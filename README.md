@@ -1,73 +1,210 @@
-# Welcome to your Lovable project
+🏠 **Tophuis Design Hub Website**
 
-## Project info
+Official website of **Tophuis Design Hub**, a renovation and interior construction company operating in Belgium.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+---
 
-## How can I edit this code?
+### 🌐 Live Website
 
-There are several ways of editing your application.
+`https://www.tophuis.be`
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+### 📖 Overview
 
-Changes made via Lovable will be committed automatically to this repo.
+Tophuis Design Hub specializes in **complete home renovations** and **interior construction**.
+This repository contains the source code for the official company website.
 
-**Use your preferred IDE**
+The website is designed to:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **Present renovation services**
+- **Generate renovation leads**
+- **Improve local SEO visibility in Belgium**
+- **Provide a fast and modern user experience**
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+### 🧰 Services Presented On The Website
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+The website highlights (among others) the following services:
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- Totaalrenovatie van woningen
+- Interieur- en afwerkingswerken
+- Badkamerrenovatie en installatie
+- Vloeren (parket, laminaat, tegels)
+- Elektrische installaties (met certificaat)
+- Smart Home systemen (Loxone / domotica)
+- Maatmeubilair en keukeninstallatie
+- Gyproc, pleister- en schilderwerken
+- Installatie van airconditioning
+- Installatie van warmtepompen
+- Sanitaire installaties
+- Ramen en deuren (indien van toepassing in projecten)
 
-# Step 3: Install the necessary dependencies.
-npm i
+**Belangrijkste regio’s / target service areas:**
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+- Gent
+- Roeselare
+- Kortrijk
+- Oost-Vlaanderen
+- West-Vlaanderen
+
+---
+
+### ⚙️ Tech Stack
+
+This project uses a lightweight, modern frontend stack:
+
+- **Vite** (build tooling, dev server)
+- **React** (SPA frontend)
+- **TypeScript**
+- **Tailwind CSS**
+- **shadcn/ui** + custom components
+
+Infrastructure:
+
+- **GitHub** – Version control (this repository)
+- **Combell** – Domain & production hosting (`www.tophuis.be`)
+- Optional: **Vercel / Netlify** – Can be used for preview deployments if desired (not required for production)
+
+---
+
+### 🚀 Deployment
+
+Production hosting is currently done via **Combell**.
+
+High-level deployment workflow:
+
+1. Developer commits & pushes code to **GitHub**.
+2. A production build is created locally with:
+   - `npm install`
+   - `npm run build`
+3. The **contents of the `dist/` folder** (including the `assets/` directory, `index.html`, `.htaccess`, `sitemap.xml`, `robots.txt`, and verification files) are uploaded to the Combell webroot for `www.tophuis.be`.
+
+For detailed Combell instructions, see `DEPLOY-COMBELL.md` in this repository.
+
+---
+
+### 🌍 Domain Configuration
+
+- **Domain:** `https://www.tophuis.be`
+- **DNS Provider:** Combell
+- **Hosting:** Combell web hosting (uploads from Vite `dist/`)
+
+HTTPS, redirects, and security headers are handled via the `.htaccess` file included in `public/` → built into `dist/`.
+
+---
+
+### 📈 SEO Features
+
+The website is optimized for **local SEO in Belgium**.
+
+Key SEO features:
+
+- Optimized meta titles and descriptions
+- Location-targeted homepage content (Gent, Roeselare, Kortrijk, Vlaanderen)
+- Structured headings (H1/H2) for renovation services & regions
+- XML sitemap at `https://www.tophuis.be/sitemap.xml`
+- `robots.txt` with sitemap reference
+- LocalBusiness **JSON-LD** structured data (Local SEO)
+- Schema.org (LocalBusiness) injected via React (`SchemaOrg` component)
+- **Google Analytics 4** (GA4) with **consent-gated** tracking
+- **Google Search Console** integration and verification
+- Fast loading using Vite, code-splitting, image optimization
+- Responsive design for mobile, tablet, and desktop
+
+Example target keywords:
+
+- `totaalrenovatie gent`
+- `renovatie oost vlaanderen`
+- `badkamer renovatie belgië`
+- `interieur renovatie west vlaanderen`
+
+---
+
+### 🖥️ Project Structure (simplified)
+
+```text
+tophuis-design-hub
+│
+├── public
+│   ├── index.html          # HTML entry, meta tags, JSON-LD
+│   ├── sitemap.xml         # XML sitemap
+│   ├── robots.txt          # Robots + sitemap reference
+│   ├── .htaccess           # Security headers, SPA routing (Combell)
+│   └── *.png / *.ico ...   # Icons, favicons, manifest, verification files
+│
+├── src
+│   ├── main.tsx            # React/Vite entry
+│   ├── App.tsx             # Router + layout
+│   ├── pages/              # `Index`, `Diensten`, `Realisaties`, `OverOns`, ...
+│   ├── components/         # Layout, Header, Footer, SchemaOrg, GA tracker, etc.
+│   └── assets/             # Images used in components
+│
+├── docs
+│   ├── WEBSITE-AUDIT.md
+│   ├── AUDIT-SEO-SECURITY.md
+│   ├── GOOGLE-SEARCH-CONSOLE.md
+│   └── ...                 # Other audit / implementation docs
+│
+├── vite.config.ts
+├── package.json
+└── README.md
+```
+
+---
+
+### 🧑‍💻 Local Development
+
+Requirements:
+
+- Node.js (LTS) + npm
+
+Clone the repository:
+
+```bash
+git clone https://github.com/GabiMuresan22/tophuis-design-hub.git
+cd tophuis-design-hub
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The site will be available on a local dev URL shown in the terminal (typically `http://localhost:5173`).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Create a production build:
 
-**Use GitHub Codespaces**
+```bash
+npm run build
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+The optimized site will be generated in the `dist/` folder, ready to upload to Combell.
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+### 🔒 License
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+This repository contains the **official website for Tophuis Design Hub**.
 
-## How can I deploy this project?
+**All rights reserved.**
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+The code, design, branding, and assets may **not** be reused or distributed without prior written permission from Tophuis Design Hub.
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+### 📞 Contact
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+**Tophuis Design Hub**
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- 🌐 Website: `https://www.tophuis.be`
+- For renovation inquiries, please use the contact form on the website.
+
