@@ -10,32 +10,6 @@ import galleryBathroom from "@/assets/bad-kamer-renovatie.webp";
 export default function Index() {
   const { t } = useLanguage();
 
-  // În loc de Roofing, Painting, etc., pune:
-  const services = [
-    {
-      title: t("Totaalrenovatie", "Total Renovation"), // "Produsul" Principal
-      description: t(
-        "Van A tot Z coördinatie. Eén aanspreekpunt voor uw volledige verbouwing.",
-        "A to Z coordination. One point of contact for your complete renovation."
-      ),
-      // Link către pagina dedicată Totaalrenovatie
-    },
-    {
-      title: t("Badkamer in 10 Dagen", "Bathroom in 10 Days"), // "Produsul" Rapid (SaniXL style)
-      description: t(
-        "Kies uit onze Smart, Comfort of Wellness pakketten.",
-        "Choose from our Smart, Comfort or Wellness packages."
-      ),
-    },
-    {
-      title: t("Energetische Renovatie", "Energy Renovation"), // "Produsul" Legislativ
-      description: t(
-        "EPC optimalisatie, warmtepompen en isolatie conform 2025.",
-        "EPC optimization, heat pumps and insulation in line with 2025 standards."
-      ),
-    },
-  ];
-
   const features = [
     t("Meer dan 15 jaar ervaring in de renovatiesector", "Over 15 years of experience in the renovation sector"),
     t("Volledig verzekerd en erkend aannemer", "Fully insured and certified contractor"),
@@ -88,12 +62,15 @@ export default function Index() {
         <div className="container-wide relative z-10 py-20">
           <div className="max-w-2xl animate-fade-up">
             <h1 className="text-primary-foreground mb-6">
-              {t("Renovatie met Precisie", "Renovation with Precision")}
+              {t(
+                "Totaalrenovatie en Interieurwerken in West-Vlaanderen en Oost-Vlaanderen",
+                "Total Renovation and Interior Works in West Flanders and East Flanders"
+              )}
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 font-body">
               {t(
-                "Wij transformeren uw woning met vakmanschap, kwaliteitsmaterialen en oog voor detail. TopHuis staat garant voor een perfect resultaat.",
-                "We transform your home with craftsmanship, quality materials and attention to detail. TopHuis guarantees a perfect result."
+                "Tophuis Design Hub is gespecialiseerd in totaalrenovaties, interieurwerken en technische installaties in Vlaanderen. Wij realiseren renovatieprojecten van ontwerp tot afwerking in steden zoals Gent, Roeselare, Kortrijk en omgeving.",
+                "Tophuis Design Hub specialises in total renovations, interior works and technical installations in Flanders. We deliver renovation projects from design to completion in cities such as Ghent, Roeselare, Kortrijk and surrounding areas."
               )}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -111,29 +88,92 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Services Strip */}
-      <section className="section-padding bg-card">
-        <div className="container-wide">
-          <div className="text-center mb-12">
-            <h2 className="mb-4">{t("Onze Diensten", "Our Services")}</h2>
-            <p className="max-w-2xl mx-auto text-lg">
+      {/* SEO Section – Totaalrenovatie West- en Oost-Vlaanderen */}
+      <section className="section-padding bg-muted/30">
+        <div className="container-wide max-w-3xl">
+          <h2 className="mb-6">
+            {t(
+              "Totaalrenovatie in West-Vlaanderen en Oost-Vlaanderen",
+              "Total Renovation in West Flanders and East Flanders"
+            )}
+          </h2>
+          <div className="prose prose-lg text-muted-foreground max-w-none">
+            <p className="mb-4">
               {t(
-                "Volledige interieur renovaties - wij bieden een complete service voor al uw renovatieprojecten.",
-                "Complete interior renovations - we offer a complete service for all your renovation projects."
+                "Tophuis Design Hub is uw partner voor totaalrenovatie en interieurwerken in West-Vlaanderen en Oost-Vlaanderen. Of u nu een volledige woningrenovatie, badkamerrenovatie of interieurverbouwing plant, wij begeleiden u van ontwerp tot afwerking. Onze ervaring in steden zoals Gent, Roeselare, Kortrijk en omgeving garandeert een professionele aanpak en een afgewerkt resultaat op maat van uw verwachtingen. Wij combineren vakmanschap met moderne technieken en werken met kwaliteitsmaterialen voor duurzame renovaties.",
+                "Tophuis Design Hub is your partner for total renovation and interior works in West Flanders and East Flanders. Whether you are planning a full home renovation, bathroom renovation or interior refurbishment, we guide you from design to completion. Our experience in cities such as Ghent, Roeselare, Kortrijk and the surrounding area guarantees a professional approach and a finished result tailored to your expectations. We combine craftsmanship with modern techniques and work with quality materials for sustainable renovations."
+              )}
+            </p>
+            <p>
+              {t(
+                "Voor particulieren en bedrijven leveren wij onder meer badkamerrenovaties, parket en tegelwerken, gyproc en pleisterwerken, schilderwerken, elektrische en sanitaire installaties, warmtepompen en airconditioning, en keuken- en maatmeubilair. Vraag een vrijblijvende offerte aan voor uw renovatieproject in Vlaanderen.",
+                "For private clients and businesses we deliver bathroom renovations, parquet and tiling, gypsum and plastering, painting, electrical and sanitary installations, heat pumps and air conditioning, and kitchen and custom furniture. Request a no-obligation quote for your renovation project in Flanders."
               )}
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service) => (
-              <div
-                key={service.title}
-                className="bg-background p-8 rounded shadow-architect card-hover text-center"
-              >
-                <h3 className="mb-3">{service.title}</h3>
-                <p className="text-sm">{service.description}</p>
-              </div>
-            ))}
+        </div>
+      </section>
+
+      {/* Actief in Gent, Roeselare, Kortrijk en heel Vlaanderen */}
+      <section className="section-padding">
+        <div className="container-wide max-w-3xl">
+          <h2 className="mb-6">
+            {t(
+              "Actief in Gent, Roeselare, Kortrijk en heel Vlaanderen",
+              "Active in Ghent, Roeselare, Kortrijk and all of Flanders"
+            )}
+          </h2>
+          <p className="text-muted-foreground mb-6">
+            {t(
+              "Tophuis Design Hub voert renovatieprojecten uit in verschillende steden in Vlaanderen. Wij zijn actief in zowel West-Vlaanderen als Oost-Vlaanderen en realiseren totaalrenovaties, badkamerrenovaties en interieurwerken voor particulieren en bedrijven.",
+              "Tophuis Design Hub carries out renovation projects in various cities in Flanders. We are active in both West Flanders and East Flanders and deliver total renovations, bathroom renovations and interior works for private clients and businesses."
+            )}
+          </p>
+          <p className="text-muted-foreground mb-4">
+            {t("Onze belangrijkste werkgebieden zijn onder andere:", "Our main service areas include:")}
+          </p>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-muted-foreground mb-6 list-disc list-inside">
+            <li>Gent</li>
+            <li>Roeselare</li>
+            <li>Kortrijk</li>
+            <li>Brugge</li>
+            <li>Oostende</li>
+            <li>Waregem</li>
+            <li>Deinze</li>
+            <li>Sint-Niklaas</li>
+            <li>Aalst</li>
+          </ul>
+          <p className="text-muted-foreground">
+            {t(
+              "Dankzij onze ervaring en professionele aanpak kunnen wij renovatieprojecten van elke grootte uitvoeren, van kleine interieurwerken tot volledige woningrenovaties.",
+              "Thanks to our experience and professional approach we can carry out renovation projects of any size, from small interior works to full home renovations."
+            )}
+          </p>
+        </div>
+      </section>
+
+      {/* Onze Renovatie Diensten */}
+      <section className="section-padding bg-card">
+        <div className="container-wide">
+          <div className="text-center mb-10">
+            <h2 className="mb-4">
+              {t("Onze Renovatie Diensten", "Our Renovation Services")}
+            </h2>
           </div>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl mx-auto list-disc list-inside text-muted-foreground">
+            <li>{t("Totaalrenovatie van woningen", "Total renovation of homes")}</li>
+            <li>{t("Badkamerrenovatie", "Bathroom renovation")}</li>
+            <li>{t("Parket plaatsen en renovatie", "Parquet laying and renovation")}</li>
+            <li>{t("Tegels en keramiek plaatsen", "Tiles and ceramics installation")}</li>
+            <li>{t("Gyproc en pleisterwerken", "Gypsum and plastering")}</li>
+            <li>{t("Schilderwerken", "Painting")}</li>
+            <li>{t("Elektrische installaties met certificaat", "Electrical installations with certificate")}</li>
+            <li>{t("Smart Home en Loxone domotica", "Smart Home and Loxone home automation")}</li>
+            <li>{t("Installatie van airconditioning", "Air conditioning installation")}</li>
+            <li>{t("Installatie van warmtepompen", "Heat pump installation")}</li>
+            <li>{t("Sanitaire installaties", "Sanitary installations")}</li>
+            <li>{t("Keuken en maatmeubilair installatie", "Kitchen and custom furniture installation")}</li>
+          </ul>
           <div className="text-center mt-10">
             <Button variant="outline" asChild>
               <Link to="/diensten">
