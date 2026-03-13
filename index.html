@@ -60,6 +60,58 @@
     <!-- Preconnect to analytics -->
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
+    <!-- Local SEO structured data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://www.tophuis.be/#organization",
+      "name": "TopHuis Design Hub",
+      "legalName": "TopHuis BV",
+      "url": "https://www.tophuis.be",
+      "logo": "https://www.tophuis.be/android-chrome-512x512.png",
+      "image": "https://www.tophuis.be/og-image-renovatie.jpg",
+      "description": "Totaalrenovatie en interieurwerken in West-Vlaanderen en Oost-Vlaanderen. Actief in Gent, Roeselare, Kortrijk en omgeving. Van ontwerp tot afwerking.",
+      "telephone": "+32493288887",
+      "email": "info@tophuis.be",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Grote Baan 21",
+        "addressLocality": "Lievegem",
+        "postalCode": "9920",
+        "addressRegion": "Oost-Vlaanderen",
+        "addressCountry": "BE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 51.1309,
+        "longitude": 3.5664
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Gent" },
+        { "@type": "City", "name": "Roeselare" },
+        { "@type": "City", "name": "Kortrijk" },
+        { "@type": "City", "name": "Brugge" },
+        { "@type": "City", "name": "Lievegem" },
+        { "@type": "State", "name": "West-Vlaanderen" },
+        { "@type": "State", "name": "Oost-Vlaanderen" }
+      ],
+      "priceRange": "€€€",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "17:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/tophuis",
+        "https://www.instagram.com/tophuis"
+      ]
+    }
+    </script>
   </head>
 
   <body>
