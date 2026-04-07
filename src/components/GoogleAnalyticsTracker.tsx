@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import {
-  hasAnalyticsConsent,
+  hasConsent,
   initGoogleAnalytics,
   removeGoogleAnalytics,
   trackPageView,
@@ -18,7 +18,7 @@ export function GoogleAnalyticsTracker() {
   // Sync GA state with consent
   useEffect(() => {
     const sync = () => {
-      if (hasAnalyticsConsent()) {
+      if (hasConsent()) {
         initGoogleAnalytics();
         loadedRef.current = true;
       } else {
@@ -30,7 +30,7 @@ export function GoogleAnalyticsTracker() {
     sync();
 
     const onStorage = (e: StorageEvent) => {
-      if (e.key === "cookieConsent") sync();
+      if (e.key === "tophuis_cookie_consent") sync();
     };
     const onConsent = () => sync();
 
@@ -44,7 +44,7 @@ export function GoogleAnalyticsTracker() {
 
   // Track route changes
   useEffect(() => {
-    if (!hasAnalyticsConsent()) return;
+    if (!hasConsent()) return;
     trackPageView(location.pathname + location.search, document.title);
   }, [location.pathname, location.search]);
 

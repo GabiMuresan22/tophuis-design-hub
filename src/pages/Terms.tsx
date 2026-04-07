@@ -71,6 +71,12 @@ export default function Terms() {
               {t("5. Prijzen en Betaling", "5. Prices and Payment")}
             </h2>
             <p className="text-muted-foreground mb-4">
+              {t(
+                "Alle vermelde prijzen in offertes zijn exclusief BTW, tenzij uitdrukkelijk anders vermeld. Consumentenprijzen worden altijd inclusief BTW gecommuniceerd conform Art. VI.3 WER.",
+                "All prices stated in quotations are exclusive of VAT unless expressly stated otherwise. Consumer prices are always communicated inclusive of VAT in accordance with Art. VI.3 CEL."
+              )}
+            </p>
+            <p className="text-muted-foreground mb-4">
               {t("Tenzij anders overeengekomen, zijn onze facturen betaalbaar binnen 14 dagen na factuurdatum.", "Unless otherwise agreed, our invoices are payable within 14 days of the invoice date.")}
             </p>
             <p className="text-muted-foreground mb-4">
@@ -78,6 +84,22 @@ export default function Terms() {
             </p>
             <p className="text-muted-foreground mb-6">
               {t("Bij niet-tijdige betaling is de klant van rechtswege en zonder ingebrekestelling in verzuim. In dat geval is de klant een verwijlinterest verschuldigd van 10% per jaar, evenals een forfaitaire schadevergoeding van 10% van het factuurbedrag (met een minimum van € 50,00).", "In case of late payment, the customer is automatically in default without prior notice. In that case the customer owes default interest of 10% per year, as well as a fixed compensation of 10% of the invoice amount (with a minimum of €50.00).")}
+            </p>
+
+            <h2 className="text-xl font-heading font-semibold mb-4">
+              {t("5bis. Herroepingsrecht (consumenten)", "5bis. Right of Withdrawal (consumers)")}
+            </h2>
+            <p className="text-muted-foreground mb-4">
+              {t(
+                "Voor overeenkomsten gesloten buiten de verkoopruimten (art. VI.47 WER) hebben consumenten in principe het recht om de overeenkomst kosteloos te herroepen binnen 14 kalenderdagen na ondertekening.",
+                "For contracts concluded off-premises (Art. VI.47 CEL), consumers generally have the right to withdraw from the agreement free of charge within 14 calendar days of signing."
+              )}
+            </p>
+            <p className="text-muted-foreground mb-6">
+              {t(
+                "Dit herroepingsrecht is echter uitgesloten (Art. VI.53, 3° WER) voor de uitvoering van renovatiewerken die integraal deel uitmaken van het gebouw, eens de werken zijn gestart met uitdrukkelijke instemming van de consument. In dat geval wordt een modelformulier voor herroeping op verzoek verstrekt. Consumenten die twijfelen, nemen contact op vóór de start van de werken via info@tophuis.be.",
+                "However, this right of withdrawal is excluded (Art. VI.53, 3° CEL) for the performance of renovation works that form an integral part of the building, once work has started with the consumer's explicit consent. In that case a model withdrawal form is provided on request. Consumers who are uncertain should contact us before work begins via info@tophuis.be."
+              )}
             </p>
 
             <h2 className="text-xl font-heading font-semibold mb-4">
@@ -137,9 +159,11 @@ export default function Terms() {
               {t("Op alle rechtsbetrekkingen waarbij TopHuis partij is, is uitsluitend het Belgisch recht van toepassing.", "Belgian law exclusively applies to all legal relations to which TopHuis is a party.")}
             </p>
             <p className="text-muted-foreground mb-6">
-              {t("In geval van geschillen zijn uitsluitend de rechtbanken van het gerechtelijk arrondissement Gent, afdeling Kortrijk bevoegd.", "In case of disputes, only the courts of the judicial district of Gent, division Kortrijk have jurisdiction.")}
+              {t(
+                "In geval van geschillen zijn uitsluitend de rechtbanken van het gerechtelijk arrondissement Gent, afdeling Kortrijk bevoegd. Consumenten kunnen voor de minnelijke schikking ook een beroep doen op Belmed, het Belgische onlineplatform voor buitengerechtelijke geschillenbeslechting: www.belmed.fgov.be. Voor grensoverschrijdende geschillen binnen de EU is het Europese ODR-platform beschikbaar via: https://ec.europa.eu/consumers/odr/.",
+                "In case of disputes, only the courts of the judicial district of Gent, division Kortrijk have jurisdiction. Consumers can also use Belmed, the Belgian online platform for out-of-court dispute resolution, for amicable settlement: www.belmed.fgov.be. For cross-border disputes within the EU, the European ODR platform is available at: https://ec.europa.eu/consumers/odr/."
+              )}
             </p>
-
             <h2 className="text-xl font-heading font-semibold mb-4">
               {t("12. Wijzigingen", "12. Amendments")}
             </h2>

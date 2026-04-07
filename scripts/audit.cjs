@@ -73,6 +73,20 @@ checkFile('src/pages/Terms.tsx', 'Terms & Conditions page exists');
 checkFile('src/pages/Accessibility.tsx', 'Accessibility Statement page exists');
 checkFileContains('src/pages/Privacy.tsx', 'GDPR', 'GDPR compliance mentioned in Privacy Policy');
 checkFileContains('src/pages/Privacy.tsx', 'info@tophuis.be', 'Contact email in Privacy Policy');
+checkFileContains('src/pages/Privacy.tsx', 'Boek XII', 'Belgian Code of Economic Law (Book XII) referenced');
+checkFileContains('src/pages/Privacy.tsx', 'Combell', 'Hosting provider disclosed (Book XII requirement)');
+checkFileContains('src/pages/Privacy.tsx', 'BTW-nummer', 'VAT number present in Privacy Policy');
+checkFileContains('src/pages/Privacy.tsx', 'gegevensbeschermingsautoriteit', 'GBA complaint right mentioned (Art. 77 GDPR)');
+checkFileContains('src/pages/Privacy.tsx', 'JotForm', 'JotForm (contact form processor) disclosed');
+checkFileContains('src/pages/Privacy.tsx', 'Google Maps', 'Google Maps disclosed as third-party processor');
+checkFileContains('src/pages/Privacy.tsx', 'Cookiebeleid', 'Cookie policy section present');
+checkFileContains('src/pages/Privacy.tsx', 'Art. 20', 'Data portability right (Art. 20 GDPR) present');
+checkFileContains('src/pages/Privacy.tsx', 'Art. 21', 'Right to object (Art. 21 GDPR) present');
+checkFileContains('src/pages/Terms.tsx', 'Herroepingsrecht', 'Right of withdrawal present (Art. VI.47 WER)');
+checkFileContains('src/pages/Terms.tsx', 'BTW', 'VAT/price transparency in Terms (Art. VI.3 WER)');
+checkFileContains('src/pages/Terms.tsx', 'Belmed', 'Belmed ODR platform referenced');
+checkFileContains('src/components/CookieConsent.tsx', 'tophuis_cookie_consent', 'Correct consent storage key used');
+checkFileContains('src/components/Footer.tsx', 'privacy#cookies', 'Cookie policy link in footer');
 console.log('');
 
 // 4. Performance Checks

@@ -130,6 +130,9 @@ export function Footer() {
               <Link to="/privacy" className="hover:text-secondary transition-colors">
                 {t("Privacybeleid", "Privacy Policy")}
               </Link>
+              <Link to="/privacy#cookies" className="hover:text-secondary transition-colors">
+                {t("Cookiebeleid", "Cookie Policy")}
+              </Link>
               <Link to="/terms" className="hover:text-secondary transition-colors">
                 {t("Algemene Voorwaarden", "Terms & Conditions")}
               </Link>
