@@ -53,8 +53,12 @@ export function initGoogleAnalytics(): void {
   if (typeof window === "undefined" || !hasConsent()) return;
 
   const existing = document.querySelector('script[src*="googletagmanager.com/gtag/js"]');
-  if (existing || loaded) {
+  if (existing) {
     if (!loaded) loaded = true;
+    if (DEBUG) console.log("[Analytics] GA script already present");
+    return;
+  }
+  if (loaded) {
     if (DEBUG) console.log("[Analytics] GA script already present");
     return;
   }
