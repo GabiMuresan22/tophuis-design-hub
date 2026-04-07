@@ -7,8 +7,9 @@ export const GA_MEASUREMENT_ID = "G-KD3JP0LL2G";
 
 const DEBUG = import.meta.env.DEV;
 
+const CONSENT_KEY = "tophuis_cookie_consent";
+
 interface CookiePreferences {
-  essential: boolean;
   analytics: boolean;
   marketing: boolean;
 }
@@ -20,18 +21,27 @@ declare global {
   }
 }
 
-export function getCookiePreferences(): CookiePreferences {
+/**
+ * Returns true when the user has accepted analytics cookies.
+ * Reads from `tophuis_cookie_consent` (simple "accepted"/"declined" or JSON).
+ */
+export function hasConsent(): boolean {
   try {
-    const consent = localStorage.getItem("cookieConsent");
-    if (consent) return JSON.parse(consent) as CookiePreferences;
+    const raw = localStorage.getItem(CONSENT_KEY);
+    if (raw === null) return false;
+    if (raw === "accepted") return true;
+    if (raw === "declined") return false;
+    // Granular JSON format: { analytics: bool, marketing: bool }
+    const prefs = JSON.parse(raw) as CookiePreferences;
+    return prefs.analytics === true;
   } catch {
-    // ignore
+    return false;
   }
-  return { essential: true, analytics: false, marketing: false };
 }
 
+/** @deprecated Use hasConsent() instead */
 export function hasAnalyticsConsent(): boolean {
-  return getCookiePreferences().analytics === true;
+  return hasConsent();
 }
 
 let loaded = false;
@@ -40,15 +50,14 @@ let loaded = false;
  * Load gtag.js and configure GA4. Only runs once and only when analytics consent is given.
  */
 export function initGoogleAnalytics(): void {
-  if (typeof window === "undefined" || !hasAnalyticsConsent()) return;
+  if (typeof window === "undefined" || !hasConsent()) return;
 
   const existing = document.querySelector('script[src*="googletagmanager.com/gtag/js"]');
-  if (existing) {
-    loaded = true;
+  if (existing || loaded) {
+    if (!loaded) loaded = true;
     if (DEBUG) console.log("[Analytics] GA script already present");
     return;
   }
-  if (loaded) return;
 
   if (DEBUG) console.log("[Analytics] Initializing GA4", { measurementId: GA_MEASUREMENT_ID });
 
@@ -70,9 +79,9 @@ export function initGoogleAnalytics(): void {
   const script = document.createElement("script");
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+  loaded = true; // Set before appending to prevent double-load on repeated calls
   script.onload = () => {
     if (DEBUG) console.log("[Analytics] GA script loaded OK");
-    loaded = true;
   };
   script.onerror = () => {
     console.error("[Analytics] GA script failed to load (e.g. ad blocker or network)");
@@ -93,15 +102,15 @@ export function removeGoogleAnalytics(): void {
 }
 
 /**
- * Send a page_view event.
+ * Send a page_view event to GA4.
  */
 export function trackPageView(path?: string, title?: string): void {
-  if (!hasAnalyticsConsent() || typeof window.gtag !== "function") return;
+  if (!hasConsent() || typeof window.gtag !== "function") return;
 
   const pagePath = path ?? window.location.pathname + window.location.search;
   const pageTitle = title ?? document.title;
 
-  window.gtag("config", GA_MEASUREMENT_ID, {
+  window.gtag("event", "page_view", {
     page_path: pagePath,
     page_title: pageTitle,
   });
@@ -112,7 +121,7 @@ export function trackPageView(path?: string, title?: string): void {
  * Send a custom event to GA4. Only sends when user has accepted analytics cookies.
  */
 export function trackEvent(eventName: string, eventParams?: Record<string, unknown>): void {
-  if (!hasAnalyticsConsent() || typeof window.gtag !== "function") return;
+  if (!hasConsent() || typeof window.gtag !== "function") return;
   window.gtag("event", eventName, eventParams);
   if (DEBUG) console.log("[Analytics] event", eventName, eventParams);
 }

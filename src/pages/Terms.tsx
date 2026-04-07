@@ -136,8 +136,14 @@ export default function Terms() {
             <p className="text-muted-foreground mb-4">
               {t("Op alle rechtsbetrekkingen waarbij TopHuis partij is, is uitsluitend het Belgisch recht van toepassing.", "Belgian law exclusively applies to all legal relations to which TopHuis is a party.")}
             </p>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-muted-foreground mb-4">
               {t("In geval van geschillen zijn uitsluitend de rechtbanken van het gerechtelijk arrondissement Gent, afdeling Kortrijk bevoegd.", "In case of disputes, only the courts of the judicial district of Gent, division Kortrijk have jurisdiction.")}
+            </p>
+            <p className="text-muted-foreground mb-6">
+              {t(
+                "Consumenten kunnen voor de minnelijke schikking van geschillen ook een beroep doen op Belmed, het Belgische onlineplatform voor buitengerechtelijke geschillenbeslechting: www.belmed.fgov.be. Voor grensoverschrijdende geschillen binnen de EU is het Europese ODR-platform beschikbaar via: https://ec.europa.eu/consumers/odr/.",
+                "Consumers can also use Belmed, the Belgian online platform for out-of-court dispute resolution, for amicable settlement of disputes: www.belmed.fgov.be. For cross-border disputes within the EU, the European ODR platform is available at: https://ec.europa.eu/consumers/odr/."
+              )}
             </p>
 
             <h2 className="text-xl font-heading font-semibold mb-4">

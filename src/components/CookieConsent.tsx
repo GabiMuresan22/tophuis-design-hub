@@ -12,7 +12,7 @@ interface CookiePreferences {
   marketing: boolean;
 }
 
-const COOKIE_CONSENT_KEY = "cookieConsent";
+const COOKIE_CONSENT_KEY = "tophuis_cookie_consent";
 
 export function CookieConsent() {
   const { t } = useLanguage();
@@ -38,7 +38,16 @@ export function CookieConsent() {
 
   const saveAndNotify = (prefs: CookiePreferences) => {
     try {
-      localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(prefs));
+      // Store "accepted" / "declined" for full accept/reject; JSON for granular
+      let value: string;
+      if (prefs.analytics && prefs.marketing) {
+        value = "accepted";
+      } else if (!prefs.analytics && !prefs.marketing) {
+        value = "declined";
+      } else {
+        value = JSON.stringify(prefs);
+      }
+      localStorage.setItem(COOKIE_CONSENT_KEY, value);
     } catch {
       // localStorage may be blocked
     }

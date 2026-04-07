@@ -18,7 +18,7 @@ export default function Privacy() {
         <div className="container-wide max-w-3xl">
           <div className="prose prose-lg max-w-none">
             <p className="text-muted-foreground mb-2">
-              {t("Laatst bijgewerkt: februari 2025", "Last updated: February 2025")}
+              {t("Laatst bijgewerkt: april 2026", "Last updated: April 2026")}
             </p>
             <p className="text-sm text-muted-foreground/80 mb-8">
               {t("Deze pagina is beschikbaar in het Nederlands en Engels. Gebruik de taalkeuze in het menu om van taal te wisselen.", "This page is available in Dutch and English. Use the language selector in the menu to switch languages.")}
@@ -32,8 +32,8 @@ export default function Privacy() {
             </p>
             <p className="text-muted-foreground mb-10">
               {t(
-                "Wij houden ons aan de toepasselijke wet- en regelgeving, waaronder de Algemene Verordening Gegevensbescherming (AVG/GDPR).",
-                "We comply with applicable laws and regulations, including the General Data Protection Regulation (GDPR)."
+                "Wij houden ons aan de toepasselijke wet- en regelgeving, waaronder de Algemene Verordening Gegevensbescherming (AVG/GDPR) en het Belgisch Wetboek van Economisch Recht (Boek XII).",
+                "We comply with applicable laws and regulations, including the General Data Protection Regulation (GDPR) and the Belgian Code of Economic Law (Book XII)."
               )}
             </p>
 
@@ -44,8 +44,10 @@ export default function Privacy() {
               TopHuis BV<br />
               {t("Adres", "Address")}: Grote Baan 21, 9920 Lievegem, {t("België", "Belgium")}<br />
               {t("Ondernemingsnummer (KBO)", "Company number (KBO)")}: BE 1022.501.249<br />
+              {t("BTW-nummer", "VAT number")}: BE 1022.501.249<br />
               E-mail: info@tophuis.be<br />
-              {t("Telefoon", "Phone")}: +32 493 28 88 87
+              {t("Telefoon", "Phone")}: +32 493 28 88 87<br />
+              {t("Hosting", "Hosting")}: Combell NV, Skaldenstraat 121, 9042 Gent, {t("België", "Belgium")}
             </p>
 
             <h2 className="text-xl font-heading font-semibold mb-4">
@@ -76,7 +78,7 @@ export default function Privacy() {
               <li><strong>{t("Uitvoering van de Overeenkomst", "Performance of the Contract")}:</strong> {t("Om de renovatiewerken uit te voeren, te coördineren met architecten/ingenieurs en de veiligheid op de werf te waarborgen.", "To carry out the renovation work, coordinate with architects/engineers and ensure safety on site.")}</li>
               <li><strong>{t("Facturatie & Boekhouding", "Billing & Accounting")}:</strong> {t("Om facturen te versturen en te voldoen aan de Belgische fiscale en boekhoudkundige verplichtingen.", "To send invoices and comply with Belgian tax and accounting obligations.")}</li>
               <li><strong>{t("Vergunningen & Administratie", "Permits & Administration")}:</strong> {t("Voor het aanvragen van bouwvergunningen of parkeerverbodsborden (inname openbaar domein) bij de stad/gemeente.", "For applying for building permits or no-parking signs (use of public domain) with the city/municipality.")}</li>
-              <li><strong>{t("Direct Marketing", "Direct Marketing")}:</strong> {t("Om u updates of wensen te sturen (enkel indien u hiervoor toestemming heeft gegeven of een bestaande klant bent).", "To send you updates or offers (only if you have given consent or are an existing customer).")}</li>
+              <li><strong>{t("Direct Marketing", "Direct Marketing")}:</strong> {t("Om u updates of wensen te sturen (enkel indien u hiervoor toestemming heeft gegeven of een bestaande klant bent).", "To send you updates or offers (only if you have given consent or are an existing customer.")}</li>
             </ul>
 
             <h2 className="text-xl font-heading font-semibold mb-4">
@@ -103,6 +105,7 @@ export default function Privacy() {
               <li><strong>{t("Professionele diensten", "Professional services")}:</strong> {t("Architecten, EPB-verslaggevers of veiligheidscoördinatoren.", "Architects, EPB reporters or safety coordinators.")}</li>
               <li><strong>{t("Overheidsinstanties", "Government bodies")}:</strong> {t("Gemeenten (voor vergunningen) of de RSZ (voor Checkin@work op grote werven).", "Municipalities (for permits) or the NSSO (for Checkin@work on large sites).")}</li>
               <li><strong>{t("IT & Administratie", "IT & Administration")}:</strong> {t("Onze boekhouder en softwareleveranciers (bijv. cloudopslag, facturatiesoftware).", "Our accountant and software suppliers (e.g. cloud storage, invoicing software).")}</li>
+              <li><strong>{t("Google Analytics", "Google Analytics")}:</strong> {t("Enkel indien u analytische cookies accepteert, worden anonieme bezoekersgegevens gedeeld met Google LLC (VS) via Google Analytics 4. IP-adressen worden geanonimiseerd.", "Only if you accept analytics cookies, anonymous visitor data is shared with Google LLC (USA) via Google Analytics 4. IP addresses are anonymised.")}</li>
             </ul>
 
             <h2 className="text-xl font-heading font-semibold mb-4">
@@ -121,27 +124,149 @@ export default function Privacy() {
               {t("7. Uw rechten", "7. Your rights")}
             </h2>
             <p className="text-muted-foreground mb-4">
-              {t("U heeft het recht om:", "You have the right to:")}
+              {t(
+                "Op grond van de AVG/GDPR heeft u de volgende rechten:",
+                "Under the GDPR you have the following rights:"
+              )}
             </p>
             <ul className="list-disc pl-6 text-muted-foreground mb-4 space-y-2">
-              <li>{t("Inzage te vragen in de persoonsgegevens die wij van u hebben.", "Request access to the personal data we hold about you.")}</li>
-              <li>{t("Correctie van onjuiste gegevens te vragen.", "Request correction of incorrect data.")}</li>
-              <li>{t("Verwijdering van gegevens te vragen (tenzij wij deze moeten bewaren voor belastingen of aansprakelijkheid).", "Request deletion of data (unless we must retain it for tax or liability purposes).")}</li>
-              <li>{t("Uw toestemming in te trekken (bijv. voor marketingfoto's) op elk moment.", "Withdraw your consent (e.g. for marketing photos) at any time.")}</li>
+              <li><strong>{t("Recht op inzage (Art. 15)", "Right of access (Art. 15)")}:</strong> {t("U kunt opvragen welke persoonsgegevens wij van u verwerken.", "You can request which personal data we process about you.")}</li>
+              <li><strong>{t("Recht op rectificatie (Art. 16)", "Right to rectification (Art. 16)")}:</strong> {t("U kunt onjuiste of onvolledige gegevens laten corrigeren.", "You can have incorrect or incomplete data corrected.")}</li>
+              <li><strong>{t("Recht op gegevenswissing (Art. 17)", "Right to erasure (Art. 17)")}:</strong> {t("U kunt verwijdering van uw gegevens vragen, tenzij wij deze wettelijk moeten bewaren (bijv. voor belastingen of aansprakelijkheid).", "You can request deletion of your data, unless we are legally required to keep it (e.g. for tax or liability purposes).")}</li>
+              <li><strong>{t("Recht op beperking van de verwerking (Art. 18)", "Right to restriction of processing (Art. 18)")}:</strong> {t("U kunt in bepaalde gevallen vragen om de verwerking van uw gegevens tijdelijk te beperken.", "In certain cases you can ask us to temporarily restrict the processing of your data.")}</li>
+              <li><strong>{t("Recht op gegevensoverdraagbaarheid (Art. 20)", "Right to data portability (Art. 20)")}:</strong> {t("U kunt vragen om uw persoonsgegevens in een gestructureerd, gangbaar en machineleesbaar formaat te ontvangen, voor zover van toepassing.", "You can request to receive your personal data in a structured, commonly used and machine-readable format, where applicable.")}</li>
+              <li><strong>{t("Recht van bezwaar (Art. 21)", "Right to object (Art. 21)")}:</strong> {t("U kunt bezwaar maken tegen de verwerking van uw gegevens op basis van gerechtvaardigd belang of voor direct-marketingdoeleinden.", "You can object to the processing of your data on the basis of legitimate interest or for direct marketing purposes.")}</li>
+              <li><strong>{t("Recht om toestemming in te trekken", "Right to withdraw consent")}:</strong> {t("U kunt uw toestemming (bijv. voor marketingfoto's of analytische cookies) op elk moment intrekken, zonder dat dit gevolgen heeft voor de rechtmatigheid van de verwerking vóór de intrekking.", "You can withdraw your consent (e.g. for marketing photos or analytics cookies) at any time, without affecting the lawfulness of processing before the withdrawal.")}</li>
+              <li><strong>{t("Recht om niet onderworpen te worden aan geautomatiseerde besluitvorming (Art. 22)", "Right not to be subject to automated decision-making (Art. 22)")}:</strong> {t("Wij maken geen gebruik van geautomatiseerde besluitvorming of profilering met rechtsgevolgen.", "We do not use automated decision-making or profiling with legal effects.")}</li>
             </ul>
+            <p className="text-muted-foreground mb-4">
+              {t(
+                "Om deze rechten uit te oefenen, kunt u contact met ons opnemen via info@tophuis.be. Wij reageren binnen 30 dagen.",
+                "To exercise these rights, you can contact us at info@tophuis.be. We will respond within 30 days."
+              )}
+            </p>
             <p className="text-muted-foreground mb-6">
-              {t("Om deze rechten uit te oefenen, kunt u contact met ons opnemen via info@tophuis.be.", "To exercise these rights, you can contact us at info@tophuis.be.")}
+              {t(
+                "U heeft ook het recht om een klacht in te dienen bij de Gegevensbeschermingsautoriteit (GBA): Drukpersstraat 35, 1000 Brussel — contact@apd-gba.be — www.gegevensbeschermingsautoriteit.be.",
+                "You also have the right to lodge a complaint with the Belgian Data Protection Authority (GBA): Rue de la Presse 35, 1000 Brussels — contact@apd-gba.be — www.dataprotectionauthority.be."
+              )}
             </p>
 
             <h2 className="text-xl font-heading font-semibold mb-4">
               {t("8. Beveiliging", "8. Security")}
             </h2>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground mb-10">
               {t(
                 "Wij hebben passende technische en organisatorische maatregelen genomen om uw persoonsgegevens te beveiligen tegen onrechtmatige verwerking, waaronder het beveiligen van onze IT-systemen en het maken van geheimhoudingsafspraken met onze onderaannemers.",
                 "We have taken appropriate technical and organizational measures to protect your personal data against unlawful processing, including securing our IT systems and entering into confidentiality agreements with our subcontractors."
               )}
             </p>
+
+            <h2 id="cookies" className="text-xl font-heading font-semibold mb-4">
+              {t("9. Cookiebeleid", "9. Cookie Policy")}
+            </h2>
+            <p className="text-muted-foreground mb-4">
+              {t(
+                "Onze website maakt gebruik van cookies en vergelijkbare technologieën. Een cookie is een klein tekstbestand dat op uw apparaat wordt opgeslagen wanneer u onze website bezoekt.",
+                "Our website uses cookies and similar technologies. A cookie is a small text file stored on your device when you visit our website."
+              )}
+            </p>
+
+            <h3 className="text-lg font-heading font-semibold mb-3">
+              {t("9.1 Essentiële cookies", "9.1 Essential cookies")}
+            </h3>
+            <p className="text-muted-foreground mb-2">
+              {t(
+                "Deze cookies zijn strikt noodzakelijk voor de werking van de website en kunnen niet worden uitgeschakeld.",
+                "These cookies are strictly necessary for the functioning of the website and cannot be disabled."
+              )}
+            </p>
+            <div className="overflow-x-auto mb-6">
+              <table className="w-full text-sm text-muted-foreground border-collapse">
+                <thead>
+                  <tr className="border-b">
+                    <th className="text-left py-2 pr-4 font-semibold">{t("Naam", "Name")}</th>
+                    <th className="text-left py-2 pr-4 font-semibold">{t("Doel", "Purpose")}</th>
+                    <th className="text-left py-2 font-semibold">{t("Bewaartermijn", "Retention")}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b">
+                    <td className="py-2 pr-4 font-mono text-xs">tophuis_cookie_consent</td>
+                    <td className="py-2 pr-4">{t("Slaat uw cookievoorkeur op (localStorage)", "Stores your cookie preference (localStorage)")}</td>
+                    <td className="py-2">{t("Tot u de browser cache wist", "Until you clear browser storage")}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 className="text-lg font-heading font-semibold mb-3">
+              {t("9.2 Analytische cookies", "9.2 Analytics cookies")}
+            </h3>
+            <p className="text-muted-foreground mb-2">
+              {t(
+                "Deze cookies worden enkel geplaatst na uw toestemming. Ze helpen ons begrijpen hoe bezoekers de website gebruiken, zodat wij de gebruikerservaring kunnen verbeteren.",
+                "These cookies are only placed after your consent. They help us understand how visitors use the website so we can improve the user experience."
+              )}
+            </p>
+            <div className="overflow-x-auto mb-6">
+              <table className="w-full text-sm text-muted-foreground border-collapse">
+                <thead>
+                  <tr className="border-b">
+                    <th className="text-left py-2 pr-4 font-semibold">{t("Naam", "Name")}</th>
+                    <th className="text-left py-2 pr-4 font-semibold">{t("Aanbieder", "Provider")}</th>
+                    <th className="text-left py-2 pr-4 font-semibold">{t("Doel", "Purpose")}</th>
+                    <th className="text-left py-2 font-semibold">{t("Bewaartermijn", "Retention")}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b">
+                    <td className="py-2 pr-4 font-mono text-xs">_ga</td>
+                    <td className="py-2 pr-4">Google Analytics</td>
+                    <td className="py-2 pr-4">{t("Onderscheidt bezoekers (anoniem)", "Distinguishes visitors (anonymous)")}</td>
+                    <td className="py-2">2 {t("jaar", "years")}</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-2 pr-4 font-mono text-xs">_ga_*</td>
+                    <td className="py-2 pr-4">Google Analytics 4</td>
+                    <td className="py-2 pr-4">{t("Sessie- en paginaweergave-tracking (anoniem)", "Session and page view tracking (anonymous)")}</td>
+                    <td className="py-2">2 {t("jaar", "years")}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-muted-foreground mb-4">
+              {t(
+                "IP-adressen worden geanonimiseerd. Wij delen geen gegevens met Google voor advertentiedoeleinden.",
+                "IP addresses are anonymised. We do not share data with Google for advertising purposes."
+              )}
+            </p>
+
+            <h3 className="text-lg font-heading font-semibold mb-3">
+              {t("9.3 Marketing cookies", "9.3 Marketing cookies")}
+            </h3>
+            <p className="text-muted-foreground mb-6">
+              {t(
+                "Wij maken momenteel geen gebruik van marketing- of advertentiecookies van derden. Mocht dit in de toekomst veranderen, dan zal deze pagina worden bijgewerkt en opnieuw uw toestemming worden gevraagd.",
+                "We currently do not use third-party marketing or advertising cookies. Should this change in the future, this page will be updated and your consent will be requested again."
+              )}
+            </p>
+
+            <h3 className="text-lg font-heading font-semibold mb-3">
+              {t("9.4 Cookies beheren", "9.4 Managing cookies")}
+            </h3>
+            <p className="text-muted-foreground mb-4">
+              {t(
+                "U kunt uw cookievoorkeuren op elk moment aanpassen via de cookiebanner onderaan de pagina. Daarnaast kunt u cookies beheren of verwijderen via de instellingen van uw browser:",
+                "You can adjust your cookie preferences at any time via the cookie banner at the bottom of the page. You can also manage or delete cookies via your browser settings:"
+              )}
+            </p>
+            <ul className="list-disc pl-6 text-muted-foreground mb-6 space-y-1">
+              <li>Chrome: {t("Instellingen → Privacy en beveiliging → Cookies", "Settings → Privacy and security → Cookies")}</li>
+              <li>Firefox: {t("Instellingen → Privacy & Beveiliging → Cookies", "Settings → Privacy & Security → Cookies")}</li>
+              <li>Safari: {t("Voorkeuren → Privacy → Cookies", "Preferences → Privacy → Cookies")}</li>
+              <li>Edge: {t("Instellingen → Privacy, zoeken en services → Cookies", "Settings → Privacy, search and services → Cookies")}</li>
+            </ul>
           </div>
         </div>
       </section>
