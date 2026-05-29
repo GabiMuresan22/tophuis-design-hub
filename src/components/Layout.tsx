@@ -1,6 +1,7 @@
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { CookieConsent } from "./CookieConsent";
+import { CookieSettingsButton } from "./CookieSettingsButton";
 import { SchemaOrg } from "./SchemaOrg";
 import { CanonicalTag } from "./CanonicalTag";
 
@@ -16,6 +17,7 @@ export function Layout({ children }: LayoutProps) {
       <Header />
       <main className="flex-1">{children}</main>
       <Footer />
+      <CookieSettingsButton />
       <CookieConsent />
     </div>
   );
