@@ -76,9 +76,10 @@ export function initGoogleAnalytics(): void {
   // no-op, so checking `typeof gtag !== "function"` would skip re-setup and
   // the queued "js"/"config" commands below would never reach the dataLayer.
   window.dataLayer = window.dataLayer || [];
-  window.gtag = function gtag(...args: unknown[]) {
-    window.dataLayer.push(args);
-  };
+  // Must use `arguments` (not rest params) — Google's gtag.js processes the
+  // dataLayer expecting the Arguments object format, not a regular array.
+  // eslint-disable-next-line prefer-rest-params
+  window.gtag = function gtag() { window.dataLayer.push(arguments as unknown[]); };
 
   window.gtag("js", new Date());
   window.gtag("config", GA_MEASUREMENT_ID, {
