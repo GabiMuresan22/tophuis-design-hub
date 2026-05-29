@@ -36,6 +36,26 @@ export function hasAnalyticsConsent(): boolean {
 
 let loaded = false;
 
+function expireCookie(name: string, domain?: string): void {
+  const domainPart = domain ? ` domain=${domain};` : "";
+  document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;${domainPart} SameSite=Lax`;
+}
+
+function removeGoogleAnalyticsCookies(): void {
+  const cookieNames = ["_ga", "_gid", "_gat", `_ga_${GA_MEASUREMENT_ID.replace(/^G-/, "")}`];
+  const hostname = window.location.hostname;
+  const domainParts = hostname.split(".").filter(Boolean);
+  const domains = new Set<string | undefined>([undefined]);
+
+  for (let index = 0; index < domainParts.length - 1; index += 1) {
+    domains.add(`.${domainParts.slice(index).join(".")}`);
+  }
+
+  cookieNames.forEach((cookieName) => {
+    domains.forEach((domain) => expireCookie(cookieName, domain));
+  });
+}
+
 /**
  * Load gtag.js and configure GA4. Only runs once and only when analytics consent is given.
  */
@@ -86,6 +106,9 @@ export function initGoogleAnalytics(): void {
  */
 export function removeGoogleAnalytics(): void {
   document.querySelectorAll('script[src*="googletagmanager.com/gtag/js"]').forEach((s) => s.remove());
+  if (typeof window !== "undefined") {
+    removeGoogleAnalyticsCookies();
+  }
   if (window.dataLayer) window.dataLayer = [];
   window.gtag = () => {};
   loaded = false;

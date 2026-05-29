@@ -198,6 +198,9 @@ export function CookieConsent() {
                 <Button variant="blueprint" size="sm" onClick={handleSavePreferences} className="flex-1 sm:flex-none">
                   {t("Voorkeuren Opslaan", "Save Preferences")}
                 </Button>
+                <Button variant="ghost" size="sm" onClick={handleRejectNonEssential} className="flex-1 sm:flex-none">
+                  {t("Weiger Niet-Essentieel", "Reject Non-Essential")}
+                </Button>
                 <Button variant="outline" size="sm" onClick={handleAcceptAll} className="flex-1 sm:flex-none">
                   {t("Accepteer Alles", "Accept All")}
                 </Button>

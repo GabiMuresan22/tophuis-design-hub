@@ -105,4 +105,30 @@ describe("analytics", () => {
       form_name: "contact",
     });
   });
+
+  it("removes GA cookies and disables tracking when consent is revoked", async () => {
+    window.localStorage.setItem(
+      COOKIE_CONSENT_KEY,
+      JSON.stringify({ essential: true, analytics: true, marketing: false })
+    );
+    const { removeGoogleAnalytics, trackEvent } = await import("./analytics");
+
+    document.cookie = "_ga=test-ga-cookie; path=/";
+    document.cookie = "_gid=test-gid-cookie; path=/";
+    window.dataLayer = [];
+    window.gtag = (...args: unknown[]) => {
+      window.dataLayer.push(args);
+    };
+
+    window.localStorage.setItem(
+      COOKIE_CONSENT_KEY,
+      JSON.stringify({ essential: true, analytics: false, marketing: false })
+    );
+    removeGoogleAnalytics();
+    trackEvent("generate_lead", { form_name: "contact" });
+
+    expect(document.cookie).not.toContain("_ga=");
+    expect(document.cookie).not.toContain("_gid=");
+    expect(window.dataLayer).toEqual([]);
+  });
 });
