@@ -89,11 +89,27 @@ export default function Privacy() {
               <li><strong>{t("Contractuele noodzaak", "Contractual necessity")}:</strong> {t("Wij kunnen uw woning niet renoveren zonder uw adres en contactgegevens.", "We cannot renovate your home without your address and contact details.")}</li>
               <li><strong>{t("Wettelijke verplichting", "Legal obligation")}:</strong> {t("Wij zijn verplicht facturen te bewaren voor de belastingdienst en, indien van toepassing, aanwezigheidsregistratie (Checkin@work) te doen voor de sociale zekerheid.", "We are required to keep invoices for the tax authorities and, where applicable, to record attendance (Checkin@work) for social security.")}</li>
               <li><strong>{t("Gerechtvaardigd belang", "Legitimate interest")}:</strong> {t("Voor de periode van de tienjarige aansprakelijkheid met betrekking tot bouwgebreken.", "For the ten-year liability period regarding construction defects.")}</li>
-              <li><strong>{t("Toestemming", "Consent")}:</strong> {t("Voor het gebruik van foto's van uw afgewerkte project op onze sociale media of website (wij vragen dit altijd apart).", "For the use of photos of your completed project on our social media or website (we always ask this separately).")}</li>
+              <li><strong>{t("Toestemming", "Consent")}:</strong> {t("Voor analytische cookies via Google Analytics 4 en voor het gebruik van foto's van uw afgewerkte project op onze sociale media of website (wij vragen dit altijd apart).", "For analytics cookies via Google Analytics 4 and for the use of photos of your completed project on our social media or website (we always ask this separately).")}</li>
             </ul>
 
             <h2 className="text-xl font-heading font-semibold mb-4">
-              {t("5. Delen van gegevens met derden", "5. Sharing data with third parties")}
+              {t("5. Cookies en Google Analytics", "5. Cookies and Google Analytics")}
+            </h2>
+            <p className="text-muted-foreground mb-4">
+              {t(
+                "Onze website gebruikt essentiële cookies die nodig zijn voor de werking van de site en, uitsluitend na uw toestemming, analytische cookies via Google Analytics 4.",
+                "Our website uses essential cookies that are required for the site to function and, only after your consent, analytics cookies through Google Analytics 4."
+              )}
+            </p>
+            <ul className="list-disc pl-6 text-muted-foreground mb-6 space-y-2">
+              <li><strong>{t("Doel", "Purpose")}:</strong> {t("Om inzicht te krijgen in het gebruik van onze website en onze inhoud te verbeteren.", "To understand how our website is used and improve our content.")}</li>
+              <li><strong>{t("Rechtsgrond", "Legal basis")}:</strong> {t("Toestemming via de cookiebanner.", "Consent via the cookie banner.")}</li>
+              <li><strong>{t("Instellingen", "Settings")}:</strong> {t("Wij hebben IP-anonimisering ingeschakeld en Google Signals uitgeschakeld.", "We have enabled IP anonymization and disabled Google Signals.")}</li>
+              <li><strong>{t("Beheer", "Control")}:</strong> {t("U kunt uw keuze op elk moment aanpassen via de link 'Cookie-instellingen' in de footer.", "You can change your choice at any time through the 'Cookie Settings' link in the footer.")}</li>
+            </ul>
+
+            <h2 className="text-xl font-heading font-semibold mb-4">
+              {t("6. Delen van gegevens met derden", "6. Sharing data with third parties")}
             </h2>
             <p className="text-muted-foreground mb-4">
               {t("Wij verkopen uw gegevens niet. Voor een renovatieproject moeten wij echter informatie delen met:", "We do not sell your data. However, for a renovation project we must share information with:")}
@@ -106,7 +122,7 @@ export default function Privacy() {
             </ul>
 
             <h2 className="text-xl font-heading font-semibold mb-4">
-              {t("6. Bewaartermijn", "6. Retention period")}
+              {t("7. Bewaartermijn", "7. Retention period")}
             </h2>
             <p className="text-muted-foreground mb-4">
               {t("Wij bewaren gegevens niet langer dan noodzakelijk, met specifieke uitzonderingen voor de bouwsector:", "We do not keep data longer than necessary, with specific exceptions for the construction sector:")}
@@ -118,7 +134,7 @@ export default function Privacy() {
             </ul>
 
             <h2 className="text-xl font-heading font-semibold mb-4">
-              {t("7. Uw rechten", "7. Your rights")}
+              {t("8. Uw rechten", "8. Your rights")}
             </h2>
             <p className="text-muted-foreground mb-4">
               {t("U heeft het recht om:", "You have the right to:")}
@@ -134,7 +150,7 @@ export default function Privacy() {
             </p>
 
             <h2 className="text-xl font-heading font-semibold mb-4">
-              {t("8. Beveiliging", "8. Security")}
+              {t("9. Beveiliging", "9. Security")}
             </h2>
             <p className="text-muted-foreground">
               {t(

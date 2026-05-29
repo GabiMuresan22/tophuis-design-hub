@@ -1,106 +1,108 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import {
-  GA_MEASUREMENT_ID,
-  hasConsent,
-  initGoogleAnalytics,
-  trackPageView,
-} from "./analytics";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-const CONSENT_KEY = "tophuis_cookie_consent";
+const COOKIE_CONSENT_KEY = "cookieConsent";
 
-describe("Google Analytics (consent-gated)", () => {
-  let appendChildSpy: ReturnType<typeof vi.fn>;
+declare global {
+  interface Window {
+    dataLayer: unknown[];
+    gtag: ReturnType<typeof vi.fn>;
+  }
+}
 
+describe("analytics", () => {
   beforeEach(() => {
-    appendChildSpy = vi.fn();
-    Object.defineProperty(document, "head", {
-      value: { appendChild: appendChildSpy },
-      writable: true,
-    });
-    window.localStorage.clear();
-    // Reset module state by re-mocking: we test behavior, not internal state
     vi.resetModules();
+    vi.restoreAllMocks();
+    window.localStorage.clear();
+    delete (window as Partial<Window>).dataLayer;
+    delete (window as Partial<Window>).gtag;
+    document.head.innerHTML = "";
+    document.body.innerHTML = "";
   });
 
   afterEach(() => {
     vi.restoreAllMocks();
   });
 
-  describe("hasConsent", () => {
-    it("returns false when localStorage has no consent", () => {
-      expect(hasConsent()).toBe(false);
-    });
+  it("defaults analytics consent to false", async () => {
+    const { hasAnalyticsConsent } = await import("./analytics");
 
-    it("returns false when user declined", () => {
-      window.localStorage.setItem(CONSENT_KEY, "declined");
-      expect(hasConsent()).toBe(false);
-    });
+    expect(hasAnalyticsConsent()).toBe(false);
+  });
 
-    it("returns true when user accepted", () => {
-      window.localStorage.setItem(CONSENT_KEY, "accepted");
-      expect(hasConsent()).toBe(true);
+  it("reads analytics consent from cookie preferences", async () => {
+    window.localStorage.setItem(
+      COOKIE_CONSENT_KEY,
+      JSON.stringify({ essential: true, analytics: true, marketing: false })
+    );
+    const { hasAnalyticsConsent } = await import("./analytics");
+
+    expect(hasAnalyticsConsent()).toBe(true);
+  });
+
+  it("does not load GA when analytics consent is missing", async () => {
+    const appendChildSpy = vi.spyOn(document.head, "appendChild");
+    const { initGoogleAnalytics } = await import("./analytics");
+
+    initGoogleAnalytics();
+
+    expect(window.dataLayer).toBeUndefined();
+    expect(window.gtag).toBeUndefined();
+    expect(appendChildSpy).not.toHaveBeenCalled();
+  });
+
+  it("loads GA once when analytics consent is granted", async () => {
+    window.localStorage.setItem(
+      COOKIE_CONSENT_KEY,
+      JSON.stringify({ essential: true, analytics: true, marketing: false })
+    );
+    const appendChildSpy = vi.spyOn(document.head, "appendChild");
+    const { GA_MEASUREMENT_ID, initGoogleAnalytics } = await import("./analytics");
+
+    initGoogleAnalytics();
+    initGoogleAnalytics();
+
+    expect(Array.isArray(window.dataLayer)).toBe(true);
+    expect(typeof window.gtag).toBe("function");
+    expect(appendChildSpy).toHaveBeenCalledTimes(1);
+
+    const script = appendChildSpy.mock.calls[0][0] as HTMLScriptElement;
+    expect(script.tagName).toBe("SCRIPT");
+    expect(script.src).toContain("googletagmanager.com/gtag/js");
+    expect(script.src).toContain(GA_MEASUREMENT_ID);
+  });
+
+  it("tracks route changes with GA config calls", async () => {
+    window.localStorage.setItem(
+      COOKIE_CONSENT_KEY,
+      JSON.stringify({ essential: true, analytics: true, marketing: false })
+    );
+    const { GA_MEASUREMENT_ID, trackPageView } = await import("./analytics");
+
+    window.gtag = vi.fn();
+    trackPageView("/diensten", "Diensten - TopHuis");
+
+    expect(window.gtag).toHaveBeenCalledWith("config", GA_MEASUREMENT_ID, {
+      page_path: "/diensten",
+      page_title: "Diensten - TopHuis",
     });
   });
 
-  describe("initGoogleAnalytics", () => {
-    it("does not set up gtag or load script when consent is missing", () => {
-      initGoogleAnalytics();
-      expect(window.dataLayer).toBeUndefined();
-      expect(window.gtag).toBeUndefined();
-      expect(appendChildSpy).not.toHaveBeenCalled();
-    });
+  it("tracks custom events only after consent", async () => {
+    const { trackEvent } = await import("./analytics");
+    window.gtag = vi.fn();
 
-    it("sets dataLayer, gtag and loads script when consent is given", () => {
-      window.localStorage.setItem(CONSENT_KEY, "accepted");
-      initGoogleAnalytics();
-      expect(Array.isArray(window.dataLayer)).toBe(true);
-      expect(typeof window.gtag).toBe("function");
-      expect(appendChildSpy).toHaveBeenCalledTimes(1);
-      const script = appendChildSpy.mock.calls[0][0];
-      expect(script.tagName).toBe("SCRIPT");
-      expect(script.src).toContain("googletagmanager.com/gtag/js");
-      expect(script.src).toContain(GA_MEASUREMENT_ID);
-    });
+    trackEvent("generate_lead", { form_name: "contact" });
+    expect(window.gtag).not.toHaveBeenCalled();
 
-    it("does not load script twice when called multiple times with consent", async () => {
-      vi.resetModules();
-      const { initGoogleAnalytics: initGA } = await import("./analytics");
-      window.localStorage.setItem(CONSENT_KEY, "accepted");
-      initGA();
-      initGA();
-      expect(appendChildSpy).toHaveBeenCalledTimes(1);
-    });
-  });
+    window.localStorage.setItem(
+      COOKIE_CONSENT_KEY,
+      JSON.stringify({ essential: true, analytics: true, marketing: false })
+    );
 
-  describe("trackPageView", () => {
-    it("does nothing when consent is not given", () => {
-      const gtagSpy = vi.fn();
-      window.gtag = gtagSpy;
-      window.dataLayer = [];
-      trackPageView("/test", "Test Page");
-      expect(gtagSpy).not.toHaveBeenCalled();
-    });
-
-    it("sends page_view with path and title when consent is given", () => {
-      window.localStorage.setItem(CONSENT_KEY, "accepted");
-      const gtagSpy = vi.fn();
-      window.gtag = gtagSpy;
-      window.dataLayer = [];
-      // Prevent init from actually appending (already tested above)
-      initGoogleAnalytics();
-      window.gtag = gtagSpy;
-      gtagSpy.mockClear();
-      trackPageView("/diensten", "Diensten - TopHuis");
-      expect(gtagSpy).toHaveBeenCalledWith("event", "page_view", {
-        page_path: "/diensten",
-        page_title: "Diensten - TopHuis",
-      });
-    });
-  });
-
-  describe("GA configuration", () => {
-    it("uses the correct measurement ID", () => {
-      expect(GA_MEASUREMENT_ID).toBe("G-KD3JP0LL2G");
+    trackEvent("generate_lead", { form_name: "contact" });
+    expect(window.gtag).toHaveBeenCalledWith("event", "generate_lead", {
+      form_name: "contact",
     });
   });
 });

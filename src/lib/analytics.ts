@@ -1,9 +1,9 @@
 /**
  * Google Analytics (GA4) - GDPR-compliant, event-driven consent.
- * Measurement ID: G-KD3JP0LL2G
+ * Falls back to the production measurement ID when no env var is provided.
  */
 
-export const GA_MEASUREMENT_ID = "G-KD3JP0LL2G";
+export const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || "G-KD3JP0LL2G";
 
 const DEBUG = import.meta.env.DEV;
 
@@ -40,7 +40,7 @@ let loaded = false;
  * Load gtag.js and configure GA4. Only runs once and only when analytics consent is given.
  */
 export function initGoogleAnalytics(): void {
-  if (typeof window === "undefined" || !hasAnalyticsConsent()) return;
+  if (typeof window === "undefined" || !hasAnalyticsConsent() || !GA_MEASUREMENT_ID) return;
 
   const existing = document.querySelector('script[src*="googletagmanager.com/gtag/js"]');
   if (existing) {
@@ -96,7 +96,7 @@ export function removeGoogleAnalytics(): void {
  * Send a page_view event.
  */
 export function trackPageView(path?: string, title?: string): void {
-  if (!hasAnalyticsConsent() || typeof window.gtag !== "function") return;
+  if (!GA_MEASUREMENT_ID || !hasAnalyticsConsent() || typeof window.gtag !== "function") return;
 
   const pagePath = path ?? window.location.pathname + window.location.search;
   const pageTitle = title ?? document.title;
@@ -112,7 +112,7 @@ export function trackPageView(path?: string, title?: string): void {
  * Send a custom event to GA4. Only sends when user has accepted analytics cookies.
  */
 export function trackEvent(eventName: string, eventParams?: Record<string, unknown>): void {
-  if (!hasAnalyticsConsent() || typeof window.gtag !== "function") return;
+  if (!GA_MEASUREMENT_ID || !hasAnalyticsConsent() || typeof window.gtag !== "function") return;
   window.gtag("event", eventName, eventParams);
   if (DEBUG) console.log("[Analytics] event", eventName, eventParams);
 }

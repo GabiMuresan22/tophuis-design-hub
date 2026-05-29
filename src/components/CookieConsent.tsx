@@ -25,15 +25,35 @@ export function CookieConsent() {
   });
 
   useEffect(() => {
+    const openBanner = () => {
+      try {
+        const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
+        if (consent) {
+          setPreferences(JSON.parse(consent) as CookiePreferences);
+        }
+      } catch {
+        setPreferences({ essential: true, analytics: false, marketing: false });
+      }
+      setShowDetails(true);
+      setIsVisible(true);
+    };
+
     try {
       const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
       if (!consent) {
         const timer = setTimeout(() => setIsVisible(true), 1000);
-        return () => clearTimeout(timer);
+        window.addEventListener("openCookiePreferences", openBanner);
+        return () => {
+          clearTimeout(timer);
+          window.removeEventListener("openCookiePreferences", openBanner);
+        };
       }
     } catch {
       setIsVisible(true);
     }
+
+    window.addEventListener("openCookiePreferences", openBanner);
+    return () => window.removeEventListener("openCookiePreferences", openBanner);
   }, []);
 
   const saveAndNotify = (prefs: CookiePreferences) => {
@@ -86,7 +106,14 @@ export function CookieConsent() {
             <button
               onClick={handleRejectNonEssential}
               className="p-1 text-muted-foreground hover:text-primary transition-colors ml-2"
-              aria-label={t("Sluiten", "Close")}
+              aria-label={t(
+                "Weiger niet-essentiële cookies",
+                "Reject non-essential cookies"
+              )}
+              title={t(
+                "Weiger niet-essentiële cookies",
+                "Reject non-essential cookies"
+              )}
             >
               <X className="h-5 w-5" />
             </button>

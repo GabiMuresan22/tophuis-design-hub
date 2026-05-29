@@ -5,6 +5,10 @@ import { useLanguage } from "@/contexts/LanguageContext";
 export function Footer() {
   const { t } = useLanguage();
 
+  const openCookiePreferences = () => {
+    window.dispatchEvent(new Event("openCookiePreferences"));
+  };
+
   const quickLinks = [
     { name: t("Home", "Home"), path: "/" },
     { name: t("Diensten", "Services"), path: "/diensten" },
@@ -130,6 +134,13 @@ export function Footer() {
               <Link to="/privacy" className="hover:text-secondary transition-colors">
                 {t("Privacybeleid", "Privacy Policy")}
               </Link>
+              <button
+                type="button"
+                onClick={openCookiePreferences}
+                className="hover:text-secondary transition-colors"
+              >
+                {t("Cookie-instellingen", "Cookie Settings")}
+              </button>
               <Link to="/terms" className="hover:text-secondary transition-colors">
                 {t("Algemene Voorwaarden", "Terms & Conditions")}
               </Link>
