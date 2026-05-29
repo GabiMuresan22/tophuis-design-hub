@@ -72,12 +72,13 @@ export function initGoogleAnalytics(): void {
 
   if (DEBUG) console.log("[Analytics] Initializing GA4", { measurementId: GA_MEASUREMENT_ID });
 
-  if (typeof window.gtag !== "function") {
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function gtag(...args: unknown[]) {
-      window.dataLayer.push(args);
-    };
-  }
+  // Always reset the dataLayer stub. removeGoogleAnalytics() sets gtag to a
+  // no-op, so checking `typeof gtag !== "function"` would skip re-setup and
+  // the queued "js"/"config" commands below would never reach the dataLayer.
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function gtag(...args: unknown[]) {
+    window.dataLayer.push(args);
+  };
 
   window.gtag("js", new Date());
   window.gtag("config", GA_MEASUREMENT_ID, {
@@ -129,6 +130,23 @@ export function trackPageView(path?: string, title?: string): void {
     page_title: pageTitle,
   });
   if (DEBUG) console.log("[Analytics] page_view", { page_path: pagePath, page_title: pageTitle });
+}
+
+/**
+ * Log GA4 runtime status to the console (call from browser DevTools).
+ * Example: import('@/lib/analytics').then(m => m.debugAnalytics())
+ */
+export function debugAnalytics(): void {
+  const consent = getCookiePreferences();
+  const scriptEl = document.querySelector('script[src*="googletagmanager.com/gtag/js"]');
+  console.group("[Analytics] Debug");
+  console.log("consent", consent);
+  console.log("hasAnalyticsConsent", hasAnalyticsConsent());
+  console.log("script in DOM", !!scriptEl, scriptEl?.getAttribute("src"));
+  console.log("window.dataLayer length", window.dataLayer?.length ?? "not set");
+  console.log("typeof window.gtag", typeof window.gtag);
+  console.log("window.google_tag_manager", (window as Record<string, unknown>)["google_tag_manager"]);
+  console.groupEnd();
 }
 
 /**
